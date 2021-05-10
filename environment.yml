@@ -1,0 +1,17 @@
+name: b_tag
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - root=6.24.0
+  - python=3.8
+  - tensorflow
+  - keras
+  - scikit-learn
+  - matplotlib
+  - numpy
+  - pip=20.3.3
+  - pip:
+    - h5py==3.1.0
+    - scipy==1.5.4
+    - mplhep
