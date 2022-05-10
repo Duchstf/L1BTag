@@ -1,0 +1,134 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'algo_b'" level="0">
+<item name = "Date">Fri Jun 25 16:35:53 2021
+</item>
+<item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
+<item name = "Project">proj_b</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcvu9p-flgb2104-2-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00, 4.485, 0.50</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">14, 14, 3, 3, function</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_myproject_fu_321">myproject, 14, 14, 3, 3, function</column>
+<column name="b_tag_input_V_make_inputs_10u_s_fu_328">make_inputs_10u_s, 0, 0, 1, 1, function</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, 0, 0, 44, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">1, 2014, 21810, 139929, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, 30, -</column>
+<column name="Register">-, -, 8, -, -</column>
+<specialColumn name="Available SLR">1440, 2280, 788160, 394080, 320</specialColumn>
+<specialColumn name="Utilization SLR (%)">~0, 88, 2, 35, 0</specialColumn>
+<specialColumn name="Available">4320, 6840, 2364480, 1182240, 960</specialColumn>
+<specialColumn name="Utilization (%)">~0, 29, ~0, 11, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="b_tag_input_V_make_inputs_10u_s_fu_328">make_inputs_10u_s, 0, 0, 0, 720, 0</column>
+<column name="grp_myproject_fu_321">myproject, 1, 2014, 21810, 139209, 0</column>
+</table>
+</item>
+<item name = "DSP48E"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="r_V_fu_357_p2">*, 0, 0, 40, 8, 7</column>
+<column name="ap_block_pp0_stage0_11001">and, 0, 0, 2, 1, 1</column>
+<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">21, 4, 1, 4</column>
+<column name="ap_enable_reg_pp0_iter0">9, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">3, 0, 3, 0</column>
+<column name="ap_enable_reg_pp0_iter0_reg">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter2">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter3">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter4">1, 0, 1, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, algo_b, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, algo_b, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, algo_b, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, algo_b, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, algo_b, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, algo_b, return value</column>
+<column name="input_0_V">in, 64, ap_none, input_0_V, pointer</column>
+<column name="input_1_V">in, 64, ap_none, input_1_V, pointer</column>
+<column name="input_2_V">in, 64, ap_none, input_2_V, pointer</column>
+<column name="input_3_V">in, 64, ap_none, input_3_V, pointer</column>
+<column name="input_4_V">in, 64, ap_none, input_4_V, pointer</column>
+<column name="input_5_V">in, 64, ap_none, input_5_V, pointer</column>
+<column name="input_6_V">in, 64, ap_none, input_6_V, pointer</column>
+<column name="input_7_V">in, 64, ap_none, input_7_V, pointer</column>
+<column name="input_8_V">in, 64, ap_none, input_8_V, pointer</column>
+<column name="input_9_V">in, 64, ap_none, input_9_V, pointer</column>
+<column name="output_0_V">out, 64, ap_none, output_0_V, pointer</column>
+</table>
+</item>
+</section>
+</profile>

@@ -1,0 +1,367 @@
+
+
+================================================================
+== Vivado HLS Report for 'algo_b'
+================================================================
+* Date:           Fri Jun 25 16:32:51 2021
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_b
+* Solution:       solution1
+* Product family: virtexuplus
+* Target device:  xcvu9p-flgb2104-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|     4.485|        0.50|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   14|   14|    3|    3| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 3, depth = 15
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 15
+* Pipeline : 1
+  Pipeline-0 : II = 3, D = 15, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.48>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%input_0_V_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %input_0_V)"   --->   Operation 16 'read' 'input_0_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%input_1_V_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %input_1_V)"   --->   Operation 17 'read' 'input_1_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%input_2_V_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %input_2_V)"   --->   Operation 18 'read' 'input_2_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%input_3_V_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %input_3_V)"   --->   Operation 19 'read' 'input_3_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%input_4_V_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %input_4_V)"   --->   Operation 20 'read' 'input_4_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%input_5_V_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %input_5_V)"   --->   Operation 21 'read' 'input_5_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%input_6_V_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %input_6_V)"   --->   Operation 22 'read' 'input_6_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%input_7_V_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %input_7_V)"   --->   Operation 23 'read' 'input_7_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%input_8_V_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %input_8_V)"   --->   Operation 24 'read' 'input_8_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%input_9_V_read = call i64 @_ssdm_op_Read.ap_auto.i64P(i64* %input_9_V)"   --->   Operation 25 'read' 'input_9_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.49ns)   --->   "%b_tag_input_V = call fastcc i2080 @"make_inputs<10u>"(i64 %input_0_V_read, i64 %input_1_V_read, i64 %input_2_V_read, i64 %input_3_V_read, i64 %input_4_V_read, i64 %input_5_V_read, i64 %input_6_V_read, i64 %input_7_V_read, i64 %input_8_V_read, i64 %input_9_V_read)"   --->   Operation 26 'call' 'b_tag_input_V' <Predicate = true> <Delay = 0.49> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 27 [15/15] (3.98ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 27 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 3.98> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 4.45>
+ST_2 : Operation 28 [14/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 28 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 4.45>
+ST_3 : Operation 29 [13/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 29 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 4.45>
+ST_4 : Operation 30 [12/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 30 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 4.45>
+ST_5 : Operation 31 [11/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 31 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 4.45>
+ST_6 : Operation 32 [10/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 32 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 7 <SV = 6> <Delay = 4.45>
+ST_7 : Operation 33 [9/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 33 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 8 <SV = 7> <Delay = 4.45>
+ST_8 : Operation 34 [8/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 34 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 9 <SV = 8> <Delay = 4.45>
+ST_9 : Operation 35 [7/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 35 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 10 <SV = 9> <Delay = 4.45>
+ST_10 : Operation 36 [6/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 36 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 11 <SV = 10> <Delay = 4.45>
+ST_11 : Operation 37 [5/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 37 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 12 <SV = 11> <Delay = 4.45>
+ST_12 : Operation 38 [4/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 38 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 13 <SV = 12> <Delay = 4.45>
+ST_13 : Operation 39 [3/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 39 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 14 <SV = 13> <Delay = 4.45>
+ST_14 : Operation 40 [2/15] (4.45ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 40 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 4.45> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 15 <SV = 14> <Delay = 2.70>
+ST_15 : Operation 41 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_53_V), !map !169"   --->   Operation 41 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 42 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_52_V), !map !175"   --->   Operation 42 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 43 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_51_V), !map !181"   --->   Operation 43 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 44 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_50_V), !map !187"   --->   Operation 44 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 45 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_49_V), !map !193"   --->   Operation 45 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 46 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_48_V), !map !199"   --->   Operation 46 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 47 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_47_V), !map !205"   --->   Operation 47 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 48 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_46_V), !map !211"   --->   Operation 48 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 49 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_45_V), !map !217"   --->   Operation 49 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 50 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_44_V), !map !223"   --->   Operation 50 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 51 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_43_V), !map !229"   --->   Operation 51 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 52 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_42_V), !map !235"   --->   Operation 52 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 53 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_41_V), !map !241"   --->   Operation 53 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 54 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_40_V), !map !247"   --->   Operation 54 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 55 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_39_V), !map !253"   --->   Operation 55 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 56 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_38_V), !map !259"   --->   Operation 56 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 57 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_37_V), !map !265"   --->   Operation 57 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 58 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_36_V), !map !271"   --->   Operation 58 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 59 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_35_V), !map !277"   --->   Operation 59 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 60 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_34_V), !map !283"   --->   Operation 60 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 61 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_33_V), !map !289"   --->   Operation 61 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 62 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_32_V), !map !295"   --->   Operation 62 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 63 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_31_V), !map !301"   --->   Operation 63 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 64 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_30_V), !map !307"   --->   Operation 64 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 65 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_29_V), !map !313"   --->   Operation 65 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 66 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_28_V), !map !319"   --->   Operation 66 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 67 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_27_V), !map !325"   --->   Operation 67 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 68 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_26_V), !map !331"   --->   Operation 68 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 69 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_25_V), !map !337"   --->   Operation 69 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 70 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_24_V), !map !343"   --->   Operation 70 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 71 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_23_V), !map !349"   --->   Operation 71 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 72 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_22_V), !map !355"   --->   Operation 72 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 73 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_21_V), !map !361"   --->   Operation 73 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 74 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_20_V), !map !367"   --->   Operation 74 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 75 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_19_V), !map !373"   --->   Operation 75 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 76 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_18_V), !map !379"   --->   Operation 76 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 77 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_17_V), !map !385"   --->   Operation 77 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 78 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_16_V), !map !391"   --->   Operation 78 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 79 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_15_V), !map !397"   --->   Operation 79 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 80 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_14_V), !map !403"   --->   Operation 80 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 81 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_13_V), !map !409"   --->   Operation 81 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 82 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_12_V), !map !415"   --->   Operation 82 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 83 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_11_V), !map !421"   --->   Operation 83 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 84 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_10_V), !map !427"   --->   Operation 84 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 85 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_9_V), !map !433"   --->   Operation 85 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 86 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_8_V), !map !439"   --->   Operation 86 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 87 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_7_V), !map !445"   --->   Operation 87 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 88 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_6_V), !map !451"   --->   Operation 88 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 89 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_5_V), !map !457"   --->   Operation 89 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 90 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_4_V), !map !463"   --->   Operation 90 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 91 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_3_V), !map !469"   --->   Operation 91 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 92 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_2_V), !map !475"   --->   Operation 92 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 93 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_1_V), !map !481"   --->   Operation 93 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 94 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %output_0_V), !map !487"   --->   Operation 94 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 95 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_53_V), !map !493"   --->   Operation 95 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 96 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_52_V), !map !497"   --->   Operation 96 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 97 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_51_V), !map !501"   --->   Operation 97 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 98 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_50_V), !map !505"   --->   Operation 98 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 99 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_49_V), !map !509"   --->   Operation 99 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 100 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_48_V), !map !513"   --->   Operation 100 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 101 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_47_V), !map !517"   --->   Operation 101 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 102 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_46_V), !map !521"   --->   Operation 102 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 103 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_45_V), !map !525"   --->   Operation 103 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 104 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_44_V), !map !529"   --->   Operation 104 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 105 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_43_V), !map !533"   --->   Operation 105 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 106 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_42_V), !map !537"   --->   Operation 106 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 107 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_41_V), !map !541"   --->   Operation 107 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 108 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_40_V), !map !545"   --->   Operation 108 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 109 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_39_V), !map !549"   --->   Operation 109 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 110 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_38_V), !map !553"   --->   Operation 110 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 111 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_37_V), !map !557"   --->   Operation 111 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 112 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_36_V), !map !561"   --->   Operation 112 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 113 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_35_V), !map !565"   --->   Operation 113 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 114 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_34_V), !map !569"   --->   Operation 114 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 115 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_33_V), !map !573"   --->   Operation 115 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 116 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_32_V), !map !577"   --->   Operation 116 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 117 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_31_V), !map !581"   --->   Operation 117 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 118 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_30_V), !map !585"   --->   Operation 118 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 119 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_29_V), !map !589"   --->   Operation 119 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 120 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_28_V), !map !593"   --->   Operation 120 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 121 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_27_V), !map !597"   --->   Operation 121 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 122 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_26_V), !map !601"   --->   Operation 122 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 123 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_25_V), !map !605"   --->   Operation 123 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 124 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_24_V), !map !609"   --->   Operation 124 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 125 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_23_V), !map !613"   --->   Operation 125 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 126 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_22_V), !map !617"   --->   Operation 126 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 127 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_21_V), !map !621"   --->   Operation 127 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 128 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_20_V), !map !625"   --->   Operation 128 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 129 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_19_V), !map !629"   --->   Operation 129 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 130 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_18_V), !map !633"   --->   Operation 130 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 131 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_17_V), !map !637"   --->   Operation 131 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 132 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_16_V), !map !641"   --->   Operation 132 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 133 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_15_V), !map !645"   --->   Operation 133 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 134 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_14_V), !map !649"   --->   Operation 134 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 135 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_13_V), !map !653"   --->   Operation 135 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 136 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_12_V), !map !657"   --->   Operation 136 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 137 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_11_V), !map !661"   --->   Operation 137 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 138 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_10_V), !map !665"   --->   Operation 138 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 139 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_9_V), !map !669"   --->   Operation 139 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 140 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_8_V), !map !673"   --->   Operation 140 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 141 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_7_V), !map !677"   --->   Operation 141 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 142 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_6_V), !map !681"   --->   Operation 142 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 143 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_5_V), !map !685"   --->   Operation 143 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 144 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_4_V), !map !689"   --->   Operation 144 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 145 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_3_V), !map !693"   --->   Operation 145 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 146 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_2_V), !map !697"   --->   Operation 146 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 147 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_1_V), !map !701"   --->   Operation 147 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 148 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i64* %input_0_V), !map !705"   --->   Operation 148 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 149 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([7 x i8]* @algo_b_str) nounwind"   --->   Operation 149 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 150 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i64* %output_0_V, i64* %output_1_V, i64* %output_2_V, i64* %output_3_V, i64* %output_4_V, i64* %output_5_V, i64* %output_6_V, i64* %output_7_V, i64* %output_8_V, i64* %output_9_V, i64* %output_10_V, i64* %output_11_V, i64* %output_12_V, i64* %output_13_V, i64* %output_14_V, i64* %output_15_V, i64* %output_16_V, i64* %output_17_V, i64* %output_18_V, i64* %output_19_V, i64* %output_20_V, i64* %output_21_V, i64* %output_22_V, i64* %output_23_V, i64* %output_24_V, i64* %output_25_V, i64* %output_26_V, i64* %output_27_V, i64* %output_28_V, i64* %output_29_V, i64* %output_30_V, i64* %output_31_V, i64* %output_32_V, i64* %output_33_V, i64* %output_34_V, i64* %output_35_V, i64* %output_36_V, i64* %output_37_V, i64* %output_38_V, i64* %output_39_V, i64* %output_40_V, i64* %output_41_V, i64* %output_42_V, i64* %output_43_V, i64* %output_44_V, i64* %output_45_V, i64* %output_46_V, i64* %output_47_V, i64* %output_48_V, i64* %output_49_V, i64* %output_50_V, i64* %output_51_V, i64* %output_52_V, i64* %output_53_V, [8 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str12, i32 0, i32 0, [1 x i8]* @p_str12, [1 x i8]* @p_str12, [1 x i8]* @p_str12, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str12, [1 x i8]* @p_str12) nounwind" [firmware/algo_b.cpp:41]   --->   Operation 150 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 151 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str12) nounwind" [firmware/algo_b.cpp:42]   --->   Operation 151 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 152 [1/15] (1.15ns)   --->   "%b_tag_output_0_V = call fastcc i8 @myproject(i2080 %b_tag_input_V)"   --->   Operation 152 'call' 'b_tag_output_0_V' <Predicate = true> <Delay = 1.15> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_15 : Operation 153 [1/1] (0.00ns)   --->   "%zext_ln1116 = zext i8 %b_tag_output_0_V to i24" [firmware/algo_b.cpp:53]   --->   Operation 153 'zext' 'zext_ln1116' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 154 [1/1] (1.55ns)   --->   "%r_V = mul i24 %zext_ln1116, 100" [firmware/algo_b.cpp:53]   --->   Operation 154 'mul' 'r_V' <Predicate = true> <Delay = 1.55> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 155 [1/1] (0.00ns)   --->   "%tmp = call i16 @_ssdm_op_PartSelect.i16.i24.i32.i32(i24 %r_V, i32 8, i32 23)" [firmware/algo_b.cpp:53]   --->   Operation 155 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 156 [1/1] (0.00ns)   --->   "%sext_ln835 = sext i16 %tmp to i17" [firmware/algo_b.cpp:53]   --->   Operation 156 'sext' 'sext_ln835' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 157 [1/1] (0.00ns)   --->   "%sext_ln359 = sext i17 %sext_ln835 to i64" [firmware/algo_b.cpp:53]   --->   Operation 157 'sext' 'sext_ln359' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 158 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_none.i64P(i64* %output_0_V, i64 %sext_ln359)" [firmware/algo_b.cpp:53]   --->   Operation 158 'write' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 159 [1/1] (0.00ns)   --->   "ret void" [firmware/algo_b.cpp:54]   --->   Operation 159 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.5ns.
+
+ <State 1>: 4.48ns
+The critical path consists of the following:
+	wire read on port 'input_0_V' [221]  (0 ns)
+	'call' operation ('b_tag_input.V') to 'make_inputs<10u>' [231]  (0.5 ns)
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (3.99 ns)
+
+ <State 2>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 3>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 4>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 5>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 6>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 7>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 8>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 9>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 10>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 11>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 12>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 13>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 14>: 4.45ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (4.45 ns)
+
+ <State 15>: 2.71ns
+The critical path consists of the following:
+	'call' operation ('b_tag_output_0_V') to 'myproject' [232]  (1.16 ns)
+	'mul' operation ('r.V', firmware/algo_b.cpp:53) [234]  (1.55 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

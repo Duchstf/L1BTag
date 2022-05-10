@@ -1,0 +1,13 @@
+Backend: Vivado
+ClockPeriod: 5
+HLSConfig:
+  Model:
+    Precision: ap_fixed<16,8>
+    ReuseFactor: 1
+    Strategy: Latency
+IOType: io_parallel
+KerasModel: !keras_model 'L1B_toy_v8/keras_model.h5'
+OutputDir: L1B_toy_v8
+ProjectName: myproject
+Stamp: ad2F95ef
+XilinxPart: xcvu9p-flgb2104-2-i

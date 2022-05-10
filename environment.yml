@@ -10,9 +10,9 @@ dependencies:
   - scikit-learn
   - matplotlib
   - numpy
-  - pip=20.3.3
+  - pip
   - pip:
     - h5py==2.10.0
     - scipy==1.5.4
     - mplhep
-    - git+https://github.com/Keb-L/hls4ml.git@cnn_merge
+#    - git+https://github.com/Keb-L/hls4ml.git@cnn_merge

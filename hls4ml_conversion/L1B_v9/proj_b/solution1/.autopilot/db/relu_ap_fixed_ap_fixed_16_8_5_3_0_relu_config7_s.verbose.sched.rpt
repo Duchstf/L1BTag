@@ -1,0 +1,234 @@
+
+
+================================================================
+== Vivado HLS Report for 'relu_ap_fixed_ap_fixed_16_8_5_3_0_relu_config7_s'
+================================================================
+* Date:           Fri Jun 25 16:32:08 2021
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        proj_b
+* Solution:       solution1
+* Product family: virtexuplus
+* Target device:  xcvu9p-flgb2104-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|     0.969|        0.50|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    0|    0|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.96>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%data_19_V_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_19_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 2 'read' 'data_19_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%data_18_V_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_18_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 3 'read' 'data_18_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%data_17_V_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_17_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 4 'read' 'data_17_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%data_16_V_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_16_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 5 'read' 'data_16_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%data_15_V_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_15_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 6 'read' 'data_15_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%data_14_V_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_14_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 7 'read' 'data_14_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%data_13_V_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_13_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 8 'read' 'data_13_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%data_12_V_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_12_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 9 'read' 'data_12_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%data_11_V_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_11_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 10 'read' 'data_11_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%data_10_V_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_10_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 11 'read' 'data_10_V_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%data_9_V_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_9_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 12 'read' 'data_9_V_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%data_8_V_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_8_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 13 'read' 'data_8_V_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%data_7_V_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_7_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 14 'read' 'data_7_V_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%data_6_V_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_6_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 15 'read' 'data_6_V_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%data_5_V_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_5_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 16 'read' 'data_5_V_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%data_4_V_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_4_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 17 'read' 'data_4_V_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%data_3_V_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_3_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 18 'read' 'data_3_V_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%data_2_V_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_2_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 19 'read' 'data_2_V_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%data_1_V_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_1_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 20 'read' 'data_1_V_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%data_0_V_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_0_V_read)" [firmware/nnet_utils/nnet_activation.h:69]   --->   Operation 21 'read' 'data_0_V_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str26)" [firmware/nnet_utils/nnet_activation.h:71]   --->   Operation 22 'specregionbegin' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str13) nounwind" [firmware/nnet_utils/nnet_activation.h:72]   --->   Operation 23 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str26, i32 %tmp)" [firmware/nnet_utils/nnet_activation.h:73]   --->   Operation 24 'specregionend' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.67ns)   --->   "%icmp_ln1494 = icmp sgt i16 %data_0_V_read_2, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 25 'icmp' 'icmp_ln1494' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%trunc_ln81 = trunc i16 %data_0_V_read_2 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 26 'trunc' 'trunc_ln81' <Predicate = (icmp_ln1494)> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.29ns)   --->   "%select_ln81 = select i1 %icmp_ln1494, i15 %trunc_ln81, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 27 'select' 'select_ln81' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%zext_ln81 = zext i15 %select_ln81 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 28 'zext' 'zext_ln81' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.67ns)   --->   "%icmp_ln1494_1 = icmp sgt i16 %data_1_V_read_2, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 29 'icmp' 'icmp_ln1494_1' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%trunc_ln81_10 = trunc i16 %data_1_V_read_2 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 30 'trunc' 'trunc_ln81_10' <Predicate = (icmp_ln1494_1)> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.29ns)   --->   "%select_ln81_10 = select i1 %icmp_ln1494_1, i15 %trunc_ln81_10, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 31 'select' 'select_ln81_10' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%zext_ln81_10 = zext i15 %select_ln81_10 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 32 'zext' 'zext_ln81_10' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.67ns)   --->   "%icmp_ln1494_2 = icmp sgt i16 %data_2_V_read_2, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 33 'icmp' 'icmp_ln1494_2' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%trunc_ln81_11 = trunc i16 %data_2_V_read_2 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 34 'trunc' 'trunc_ln81_11' <Predicate = (icmp_ln1494_2)> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.29ns)   --->   "%select_ln81_11 = select i1 %icmp_ln1494_2, i15 %trunc_ln81_11, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 35 'select' 'select_ln81_11' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%zext_ln81_11 = zext i15 %select_ln81_11 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 36 'zext' 'zext_ln81_11' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.67ns)   --->   "%icmp_ln1494_3 = icmp sgt i16 %data_3_V_read_2, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 37 'icmp' 'icmp_ln1494_3' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%trunc_ln81_12 = trunc i16 %data_3_V_read_2 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 38 'trunc' 'trunc_ln81_12' <Predicate = (icmp_ln1494_3)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.29ns)   --->   "%select_ln81_12 = select i1 %icmp_ln1494_3, i15 %trunc_ln81_12, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 39 'select' 'select_ln81_12' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%zext_ln81_12 = zext i15 %select_ln81_12 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 40 'zext' 'zext_ln81_12' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.67ns)   --->   "%icmp_ln1494_4 = icmp sgt i16 %data_4_V_read_2, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 41 'icmp' 'icmp_ln1494_4' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%trunc_ln81_13 = trunc i16 %data_4_V_read_2 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 42 'trunc' 'trunc_ln81_13' <Predicate = (icmp_ln1494_4)> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.29ns)   --->   "%select_ln81_13 = select i1 %icmp_ln1494_4, i15 %trunc_ln81_13, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 43 'select' 'select_ln81_13' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%zext_ln81_13 = zext i15 %select_ln81_13 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 44 'zext' 'zext_ln81_13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.67ns)   --->   "%icmp_ln1494_5 = icmp sgt i16 %data_5_V_read_2, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 45 'icmp' 'icmp_ln1494_5' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%trunc_ln81_14 = trunc i16 %data_5_V_read_2 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 46 'trunc' 'trunc_ln81_14' <Predicate = (icmp_ln1494_5)> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.29ns)   --->   "%select_ln81_14 = select i1 %icmp_ln1494_5, i15 %trunc_ln81_14, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 47 'select' 'select_ln81_14' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%zext_ln81_14 = zext i15 %select_ln81_14 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 48 'zext' 'zext_ln81_14' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.67ns)   --->   "%icmp_ln1494_6 = icmp sgt i16 %data_6_V_read_2, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 49 'icmp' 'icmp_ln1494_6' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%trunc_ln81_15 = trunc i16 %data_6_V_read_2 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 50 'trunc' 'trunc_ln81_15' <Predicate = (icmp_ln1494_6)> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.29ns)   --->   "%select_ln81_15 = select i1 %icmp_ln1494_6, i15 %trunc_ln81_15, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 51 'select' 'select_ln81_15' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%zext_ln81_15 = zext i15 %select_ln81_15 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 52 'zext' 'zext_ln81_15' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.67ns)   --->   "%icmp_ln1494_7 = icmp sgt i16 %data_7_V_read_2, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 53 'icmp' 'icmp_ln1494_7' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%trunc_ln81_16 = trunc i16 %data_7_V_read_2 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 54 'trunc' 'trunc_ln81_16' <Predicate = (icmp_ln1494_7)> <Delay = 0.00>
+ST_1 : Operation 55 [1/1] (0.29ns)   --->   "%select_ln81_16 = select i1 %icmp_ln1494_7, i15 %trunc_ln81_16, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 55 'select' 'select_ln81_16' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%zext_ln81_16 = zext i15 %select_ln81_16 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 56 'zext' 'zext_ln81_16' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 57 [1/1] (0.67ns)   --->   "%icmp_ln1494_8 = icmp sgt i16 %data_8_V_read_2, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 57 'icmp' 'icmp_ln1494_8' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%trunc_ln81_17 = trunc i16 %data_8_V_read_2 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 58 'trunc' 'trunc_ln81_17' <Predicate = (icmp_ln1494_8)> <Delay = 0.00>
+ST_1 : Operation 59 [1/1] (0.29ns)   --->   "%select_ln81_17 = select i1 %icmp_ln1494_8, i15 %trunc_ln81_17, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 59 'select' 'select_ln81_17' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%zext_ln81_17 = zext i15 %select_ln81_17 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 60 'zext' 'zext_ln81_17' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.67ns)   --->   "%icmp_ln1494_9 = icmp sgt i16 %data_9_V_read_2, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 61 'icmp' 'icmp_ln1494_9' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%trunc_ln81_18 = trunc i16 %data_9_V_read_2 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 62 'trunc' 'trunc_ln81_18' <Predicate = (icmp_ln1494_9)> <Delay = 0.00>
+ST_1 : Operation 63 [1/1] (0.29ns)   --->   "%select_ln81_18 = select i1 %icmp_ln1494_9, i15 %trunc_ln81_18, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 63 'select' 'select_ln81_18' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%zext_ln81_18 = zext i15 %select_ln81_18 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 64 'zext' 'zext_ln81_18' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 65 [1/1] (0.67ns)   --->   "%icmp_ln1494_10 = icmp sgt i16 %data_10_V_read_1, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 65 'icmp' 'icmp_ln1494_10' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%trunc_ln81_19 = trunc i16 %data_10_V_read_1 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 66 'trunc' 'trunc_ln81_19' <Predicate = (icmp_ln1494_10)> <Delay = 0.00>
+ST_1 : Operation 67 [1/1] (0.29ns)   --->   "%select_ln81_19 = select i1 %icmp_ln1494_10, i15 %trunc_ln81_19, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 67 'select' 'select_ln81_19' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 68 [1/1] (0.00ns)   --->   "%zext_ln81_19 = zext i15 %select_ln81_19 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 68 'zext' 'zext_ln81_19' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 69 [1/1] (0.67ns)   --->   "%icmp_ln1494_11 = icmp sgt i16 %data_11_V_read_1, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 69 'icmp' 'icmp_ln1494_11' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 70 [1/1] (0.00ns)   --->   "%trunc_ln81_20 = trunc i16 %data_11_V_read_1 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 70 'trunc' 'trunc_ln81_20' <Predicate = (icmp_ln1494_11)> <Delay = 0.00>
+ST_1 : Operation 71 [1/1] (0.29ns)   --->   "%select_ln81_20 = select i1 %icmp_ln1494_11, i15 %trunc_ln81_20, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 71 'select' 'select_ln81_20' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 72 [1/1] (0.00ns)   --->   "%zext_ln81_20 = zext i15 %select_ln81_20 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 72 'zext' 'zext_ln81_20' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 73 [1/1] (0.67ns)   --->   "%icmp_ln1494_12 = icmp sgt i16 %data_12_V_read_1, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 73 'icmp' 'icmp_ln1494_12' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 74 [1/1] (0.00ns)   --->   "%trunc_ln81_21 = trunc i16 %data_12_V_read_1 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 74 'trunc' 'trunc_ln81_21' <Predicate = (icmp_ln1494_12)> <Delay = 0.00>
+ST_1 : Operation 75 [1/1] (0.29ns)   --->   "%select_ln81_21 = select i1 %icmp_ln1494_12, i15 %trunc_ln81_21, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 75 'select' 'select_ln81_21' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 76 [1/1] (0.00ns)   --->   "%zext_ln81_21 = zext i15 %select_ln81_21 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 76 'zext' 'zext_ln81_21' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 77 [1/1] (0.67ns)   --->   "%icmp_ln1494_13 = icmp sgt i16 %data_13_V_read_1, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 77 'icmp' 'icmp_ln1494_13' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 78 [1/1] (0.00ns)   --->   "%trunc_ln81_22 = trunc i16 %data_13_V_read_1 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 78 'trunc' 'trunc_ln81_22' <Predicate = (icmp_ln1494_13)> <Delay = 0.00>
+ST_1 : Operation 79 [1/1] (0.29ns)   --->   "%select_ln81_22 = select i1 %icmp_ln1494_13, i15 %trunc_ln81_22, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 79 'select' 'select_ln81_22' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 80 [1/1] (0.00ns)   --->   "%zext_ln81_22 = zext i15 %select_ln81_22 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 80 'zext' 'zext_ln81_22' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 81 [1/1] (0.67ns)   --->   "%icmp_ln1494_14 = icmp sgt i16 %data_14_V_read_1, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 81 'icmp' 'icmp_ln1494_14' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 82 [1/1] (0.00ns)   --->   "%trunc_ln81_23 = trunc i16 %data_14_V_read_1 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 82 'trunc' 'trunc_ln81_23' <Predicate = (icmp_ln1494_14)> <Delay = 0.00>
+ST_1 : Operation 83 [1/1] (0.29ns)   --->   "%select_ln81_23 = select i1 %icmp_ln1494_14, i15 %trunc_ln81_23, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 83 'select' 'select_ln81_23' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 84 [1/1] (0.00ns)   --->   "%zext_ln81_23 = zext i15 %select_ln81_23 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 84 'zext' 'zext_ln81_23' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 85 [1/1] (0.67ns)   --->   "%icmp_ln1494_15 = icmp sgt i16 %data_15_V_read_1, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 85 'icmp' 'icmp_ln1494_15' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 86 [1/1] (0.00ns)   --->   "%trunc_ln81_24 = trunc i16 %data_15_V_read_1 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 86 'trunc' 'trunc_ln81_24' <Predicate = (icmp_ln1494_15)> <Delay = 0.00>
+ST_1 : Operation 87 [1/1] (0.29ns)   --->   "%select_ln81_24 = select i1 %icmp_ln1494_15, i15 %trunc_ln81_24, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 87 'select' 'select_ln81_24' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 88 [1/1] (0.00ns)   --->   "%zext_ln81_24 = zext i15 %select_ln81_24 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 88 'zext' 'zext_ln81_24' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 89 [1/1] (0.67ns)   --->   "%icmp_ln1494_16 = icmp sgt i16 %data_16_V_read_1, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 89 'icmp' 'icmp_ln1494_16' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 90 [1/1] (0.00ns)   --->   "%trunc_ln81_25 = trunc i16 %data_16_V_read_1 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 90 'trunc' 'trunc_ln81_25' <Predicate = (icmp_ln1494_16)> <Delay = 0.00>
+ST_1 : Operation 91 [1/1] (0.29ns)   --->   "%select_ln81_25 = select i1 %icmp_ln1494_16, i15 %trunc_ln81_25, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 91 'select' 'select_ln81_25' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 92 [1/1] (0.00ns)   --->   "%zext_ln81_25 = zext i15 %select_ln81_25 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 92 'zext' 'zext_ln81_25' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 93 [1/1] (0.67ns)   --->   "%icmp_ln1494_17 = icmp sgt i16 %data_17_V_read_1, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 93 'icmp' 'icmp_ln1494_17' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 94 [1/1] (0.00ns)   --->   "%trunc_ln81_26 = trunc i16 %data_17_V_read_1 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 94 'trunc' 'trunc_ln81_26' <Predicate = (icmp_ln1494_17)> <Delay = 0.00>
+ST_1 : Operation 95 [1/1] (0.29ns)   --->   "%select_ln81_26 = select i1 %icmp_ln1494_17, i15 %trunc_ln81_26, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 95 'select' 'select_ln81_26' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 96 [1/1] (0.00ns)   --->   "%zext_ln81_26 = zext i15 %select_ln81_26 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 96 'zext' 'zext_ln81_26' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 97 [1/1] (0.67ns)   --->   "%icmp_ln1494_18 = icmp sgt i16 %data_18_V_read_1, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 97 'icmp' 'icmp_ln1494_18' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 98 [1/1] (0.00ns)   --->   "%trunc_ln81_27 = trunc i16 %data_18_V_read_1 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 98 'trunc' 'trunc_ln81_27' <Predicate = (icmp_ln1494_18)> <Delay = 0.00>
+ST_1 : Operation 99 [1/1] (0.29ns)   --->   "%select_ln81_27 = select i1 %icmp_ln1494_18, i15 %trunc_ln81_27, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 99 'select' 'select_ln81_27' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 100 [1/1] (0.00ns)   --->   "%zext_ln81_27 = zext i15 %select_ln81_27 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 100 'zext' 'zext_ln81_27' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 101 [1/1] (0.67ns)   --->   "%icmp_ln1494_19 = icmp sgt i16 %data_19_V_read_1, 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 101 'icmp' 'icmp_ln1494_19' <Predicate = true> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 102 [1/1] (0.00ns)   --->   "%trunc_ln81_28 = trunc i16 %data_19_V_read_1 to i15" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 102 'trunc' 'trunc_ln81_28' <Predicate = (icmp_ln1494_19)> <Delay = 0.00>
+ST_1 : Operation 103 [1/1] (0.29ns)   --->   "%select_ln81_28 = select i1 %icmp_ln1494_19, i15 %trunc_ln81_28, i15 0" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 103 'select' 'select_ln81_28' <Predicate = true> <Delay = 0.29> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.29> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 104 [1/1] (0.00ns)   --->   "%zext_ln81_28 = zext i15 %select_ln81_28 to i16" [firmware/nnet_utils/nnet_activation.h:81]   --->   Operation 104 'zext' 'zext_ln81_28' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 105 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } undef, i16 %zext_ln81, 0" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 105 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 106 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv, i16 %zext_ln81_10, 1" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 106 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 107 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_1, i16 %zext_ln81_11, 2" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 107 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 108 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_2, i16 %zext_ln81_12, 3" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 108 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 109 [1/1] (0.00ns)   --->   "%mrv_4 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_3, i16 %zext_ln81_13, 4" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 109 'insertvalue' 'mrv_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 110 [1/1] (0.00ns)   --->   "%mrv_5 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_4, i16 %zext_ln81_14, 5" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 110 'insertvalue' 'mrv_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 111 [1/1] (0.00ns)   --->   "%mrv_6 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_5, i16 %zext_ln81_15, 6" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 111 'insertvalue' 'mrv_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 112 [1/1] (0.00ns)   --->   "%mrv_7 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_6, i16 %zext_ln81_16, 7" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 112 'insertvalue' 'mrv_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 113 [1/1] (0.00ns)   --->   "%mrv_8 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_7, i16 %zext_ln81_17, 8" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 113 'insertvalue' 'mrv_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 114 [1/1] (0.00ns)   --->   "%mrv_9 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_8, i16 %zext_ln81_18, 9" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 114 'insertvalue' 'mrv_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 115 [1/1] (0.00ns)   --->   "%mrv_s = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_9, i16 %zext_ln81_19, 10" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 115 'insertvalue' 'mrv_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 116 [1/1] (0.00ns)   --->   "%mrv_10 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_s, i16 %zext_ln81_20, 11" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 116 'insertvalue' 'mrv_10' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 117 [1/1] (0.00ns)   --->   "%mrv_11 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_10, i16 %zext_ln81_21, 12" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 117 'insertvalue' 'mrv_11' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 118 [1/1] (0.00ns)   --->   "%mrv_12 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_11, i16 %zext_ln81_22, 13" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 118 'insertvalue' 'mrv_12' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 119 [1/1] (0.00ns)   --->   "%mrv_13 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_12, i16 %zext_ln81_23, 14" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 119 'insertvalue' 'mrv_13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 120 [1/1] (0.00ns)   --->   "%mrv_14 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_13, i16 %zext_ln81_24, 15" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 120 'insertvalue' 'mrv_14' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 121 [1/1] (0.00ns)   --->   "%mrv_15 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_14, i16 %zext_ln81_25, 16" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 121 'insertvalue' 'mrv_15' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 122 [1/1] (0.00ns)   --->   "%mrv_16 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_15, i16 %zext_ln81_26, 17" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 122 'insertvalue' 'mrv_16' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 123 [1/1] (0.00ns)   --->   "%mrv_17 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_16, i16 %zext_ln81_27, 18" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 123 'insertvalue' 'mrv_17' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 124 [1/1] (0.00ns)   --->   "%mrv_18 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_17, i16 %zext_ln81_28, 19" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 124 'insertvalue' 'mrv_18' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 125 [1/1] (0.00ns)   --->   "ret { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_18" [firmware/nnet_utils/nnet_activation.h:84]   --->   Operation 125 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.5ns.
+
+ <State 1>: 0.969ns
+The critical path consists of the following:
+	wire read on port 'data_19_V_read' (firmware/nnet_utils/nnet_activation.h:69) [21]  (0 ns)
+	'icmp' operation ('icmp_ln1494_19', firmware/nnet_utils/nnet_activation.h:81) [120]  (0.676 ns)
+	'select' operation ('res[19].V', firmware/nnet_utils/nnet_activation.h:81) [122]  (0.292 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

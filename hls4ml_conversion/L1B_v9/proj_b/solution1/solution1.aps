@@ -1,0 +1,25 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <name>
+        <value string="solution1"/>
+    </name>
+    <project>
+        <value string="proj_b"/>
+    </project>
+    <config>
+        <config_array_partition maximum_size="4096"/>
+        <config_compile name_max_length="60"/>
+        <config_interface trim_dangling_port="1"/>
+        <schedule model="algo_b"/>
+    </config>
+    <targetInfo>
+        <TargetInfo value="xcvu9p:-flgb2104:-2-i"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/virtexuplus/virtexuplus" name="DefaultPlatform"/>
+        <library value="xilinx/virtexuplus/virtexuplus_fpv7" name="DefaultPlatform"/>
+    </libraryList>
+    <clockList>
+        <clock default="false" name="default" uncertainty="0.5" period="5"/>
+    </clockList>
+</AutoPilot:solution>
+
