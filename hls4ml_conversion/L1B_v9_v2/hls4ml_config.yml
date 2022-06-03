@@ -1,0 +1,13 @@
+Backend: Vivado
+ClockPeriod: 5
+HLSConfig:
+  Model:
+    Precision: ap_fixed<16,8>
+    ReuseFactor: 5
+    Strategy: Resource
+IOType: io_parallel
+KerasModel: !keras_model 'L1B_v9_v2/keras_model.h5'
+OutputDir: L1B_v9_v2
+Part: xcvu9p-flgb2104-2-i
+ProjectName: myproject
+Stamp: B0B0C41a
