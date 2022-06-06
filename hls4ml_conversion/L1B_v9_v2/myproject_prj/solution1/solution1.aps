@@ -18,7 +18,14 @@
         <library value="xilinx/virtexuplus/virtexuplus_fpv7" name="DefaultPlatform"/>
     </libraryList>
     <clockList>
-        <clock name="default" period="5" default="false"/>
+        <clock name="default" period="2.5" default="false"/>
     </clockList>
+    <Simulation argv="">
+        <SimFlow name="cosim" setup="false" dumpTrace="all" optimizeCompile="false" ldflags="" mflags="" compiledLibrary="" reduce_diskspace="false" toolName="auto">
+            <Rtl name="systemc" active="false"/>
+            <Rtl name="verilog" active="true"/>
+            <Rtl name="vhdl" active="false"/>
+        </SimFlow>
+    </Simulation>
 </AutoPilot:solution>
 

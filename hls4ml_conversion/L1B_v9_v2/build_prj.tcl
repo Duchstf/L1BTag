@@ -2,7 +2,7 @@
 #    HLS4ML
 #################
 array set opt {
-  reset      0
+  reset      1
   csim       1
   synth      1
   cosim      1
@@ -67,7 +67,7 @@ if {$opt(reset)} {
 catch {config_array_partition -maximum_size 4096}
 config_compile -name_max_length 60
 set_part {xcvu9p-flgb2104-2-i}
-create_clock -period 5 -name default
+create_clock -period 2.5 -name default
 
 
 if {$opt(csim)} {

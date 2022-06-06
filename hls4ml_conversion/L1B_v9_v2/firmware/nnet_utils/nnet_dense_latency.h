@@ -106,6 +106,7 @@ void dense_latency(
     }
 
     // Accumulate multiplication result
+    /*
     Accum1: for(int ii = 0; ii < CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
             #pragma HLS PIPELINE
@@ -114,7 +115,38 @@ void dense_latency(
         int index = ii*CONFIG_T::n_out+jj;
         acc[jj] += mult[index];
         }
+    }*/
+
+    // special loop for accumulation
+    typename CONFIG_T::accum_t acc_lat[CONFIG_T::n_out][CONFIG_T::add_lat];
+    #pragma HLS ARRAY_PARTITION variable=acc_lat complete dim=0
+    
+    AddLatencyInit: 
+    for (int ii = 0; ii < CONFIG_T::n_out; ii++){
+      #pragma UNROLL
+      for (int ij= 0; ij < CONFIG_T::add_lat; ij++){
+	acc_lat[ii][ij] = 0;
+      }
     }
+    for(int ii = 0; ii < CONFIG_T::n_in/CONFIG_T::add_lat; ii++) {
+      for (int io = 0; io <  (CONFIG_T::n_out); io++){
+        #pragma HLS PIPELINE II=1
+ 	for (int ia = 0; ia < CONFIG_T::add_lat; ia++){
+          #pragma HLS UNROLL
+	  int index = (ii*CONFIG_T::add_lat+ia)*CONFIG_T::n_out+io;//(ii*block_factor+io)/CONFIG_T::n_in;
+          acc_lat[io][ia] += mult[index];
+	}
+      }
+    }
+
+   FullAccum: 
+    for (int ij= 0; ij < CONFIG_T::add_lat; ij++){
+     #pragma HLS PIPELINE II=1
+     for (int ii = 0; ii < CONFIG_T::n_out; ii++){
+      #pragma HLS UNROLL
+	acc[ii] += acc_lat[ii][ij];
+      }
+     }
 
     // Cast to "res_t" type
     Result: for(int ires = 0; ires < CONFIG_T::n_out; ires++){

@@ -33,7 +33,8 @@ struct config2_mult : nnet::dense_config {
     static const unsigned n_in = 13;
     static const unsigned n_out = 20;
     static const unsigned reuse_factor = 1;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     typedef model_default_t accum_t;
     typedef model_default_t bias_t;
     typedef model_default_t weight_t;
@@ -54,8 +55,9 @@ struct config2 : nnet::conv1d_config {
     static const unsigned out_width = 10;
     static const unsigned reuse_factor = 1;
     static const unsigned n_zeros = 0;
+    static const unsigned add_lat = 10;
     static const bool store_weights_in_bram = false;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned strategy = nnet::latency;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned min_width = 130;
     static const ap_uint<filt_width> pixels[min_width];
@@ -80,7 +82,8 @@ struct config13_mult : nnet::dense_config {
     static const unsigned n_in = 20;
     static const unsigned n_out = 5;
     static const unsigned reuse_factor = 5;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     typedef model_default_t accum_t;
     typedef model_default_t bias_t;
     typedef model_default_t weight_t;
@@ -102,7 +105,8 @@ struct config13 : nnet::conv1d_config {
     static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const bool store_weights_in_bram = false;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 5;
+    static const unsigned strategy = nnet::latency;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned min_width = 10;
     static const ap_uint<filt_width> pixels[min_width];
@@ -127,7 +131,8 @@ struct config7 : nnet::dense_config {
     static const unsigned n_in = 50;
     static const unsigned n_out = 20;
     static const unsigned io_type = nnet::io_parallel;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 1000;
@@ -154,7 +159,8 @@ struct config9 : nnet::dense_config {
     static const unsigned n_in = 20;
     static const unsigned n_out = 10;
     static const unsigned io_type = nnet::io_parallel;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 200;
@@ -181,7 +187,8 @@ struct config11 : nnet::dense_config {
     static const unsigned n_in = 10;
     static const unsigned n_out = 1;
     static const unsigned io_type = nnet::io_parallel;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 10;

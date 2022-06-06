@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'relu_ap_fixed_ap_fixed_16_8_5_3_0_relu_config3_s'" level="0">
-<item name = "Date">Fri Jun  3 16:15:37 2022
+<item name = "Date">Mon Jun  6 10:33:24 2022
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">myproject_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00, 2.426, 0.62</column>
+<column name="ap_clk">2.50, 0.969, 0.31</column>
 </table>
 </item>
 </section>

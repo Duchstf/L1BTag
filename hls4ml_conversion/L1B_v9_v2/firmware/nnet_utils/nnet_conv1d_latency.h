@@ -97,6 +97,7 @@ void conv_1d_latency_cl(
 
 
     // Accumulate multiplication result
+    /*
     AccumOut: for(int ii = 0; ii < CONFIG_T::out_width; ii++) {
         AccumFilt: for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
             //Do "dot product" sum within filter and sum over channels
@@ -107,7 +108,48 @@ void conv_1d_latency_cl(
                 }//end dot product loop
             }//end channel loop
         }//end filter loop
-    }//end output loop
+    }//end output loop*/
+
+    typename CONFIG_T::accum_t acc_lat[CONFIG_T::out_width][CONFIG_T::n_filt][CONFIG_T::add_lat];
+    #pragma HLS ARRAY_PARTITION variable=acc_lat complete dim=0
+    
+    AddLatencyInit: 
+    for (int i = 0; i < CONFIG_T::out_width; i++){
+      #pragma UNROLL
+      for (int j= 0; j < CONFIG_T::n_filt; j++){
+          for(int k =0; k < CONFIG_T::add_lat; k++){
+            acc_lat[i][j][k] = 0;
+          }
+      }
+    }
+
+    AccumTree:
+    for(int ii = 0; ii < CONFIG_T::out_width/CONFIG_T::add_lat; ii++) {
+        #pragma HLS PIPELINE II=1
+
+        for (int ff = 0; ff <  CONFIG_T::n_filt; ff++){
+            for(int cc= 0; cc < CONFIG_T::n_chan; cc++){
+                for(int jj = 0; jj < CONFIG_T::filt_width; jj++){
+                    for (int ia = 0; ia < CONFIG_T::add_lat; ia++){
+                        #pragma HLS UNROLL
+                        int index_mult = (ii*CONFIG_T::add_lat+ia)*CONFIG_T::n_filt*CONFIG_T::n_chan*CONFIG_T::filt_width + ff*CONFIG_T::n_chan*CONFIG_T::filt_width + cc*CONFIG_T::filt_width + jj;
+                        acc_lat[ii][ff][ia] += mult[index_mult];
+	                }
+                }
+            }
+        }
+    }
+
+   FullAccum: 
+    for (int ij= 0; ij <CONFIG_T::add_lat; ij++){
+        #pragma HLS PIPELINE II=1
+        for (int ii = 0; ii <CONFIG_T::out_width; ii++){
+            for (int ff = 0; ff <  CONFIG_T::n_filt; ff++){
+                #pragma HLS UNROLL
+	            acc[ii][ff] += acc_lat[ii][ff][ij];
+            }
+      }
+    }
 
 
     // Cast to "res_t" type
@@ -141,7 +183,7 @@ void pointwise_conv_1d_cl(
     #pragma HLS ARRAY_PARTITION variable=biases complete dim=0
 
     // Limit multipliers to control parallelization
-    const int multiplier_limit = 150;
+    const int multiplier_limit = 50;
     #pragma HLS ALLOCATION instances=mul limit=multiplier_limit operation
 
     // Convolve, saving all multiplication results to accumulate later
@@ -172,6 +214,7 @@ void pointwise_conv_1d_cl(
 
 
     // Accumulate multiplication result
+    /*
     AccumOut: for(int ii = 0; ii < CONFIG_T::out_width; ii++) {
         AccumFilt: for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
             //Do "dot product" sum within filter and sum over channels
@@ -180,7 +223,46 @@ void pointwise_conv_1d_cl(
                 acc[ii][ff] += mult[index_mult];
             }//end channel loop
         }//end filter loop
-    }//end output loop
+    }//end output loop*/
+
+    typename CONFIG_T::accum_t acc_lat[CONFIG_T::out_width][CONFIG_T::n_filt][CONFIG_T::add_lat];
+    #pragma HLS ARRAY_PARTITION variable=acc_lat complete dim=0
+    
+    AddLatencyInit: 
+    for (int i = 0; i < CONFIG_T::out_width; i++){
+      #pragma UNROLL
+      for (int j= 0; j < CONFIG_T::n_filt; j++){
+          for(int k =0; k < CONFIG_T::add_lat; k++){
+            acc_lat[i][j][k] = 0;
+          }
+      }
+    }
+
+    AccumTree:
+    for(int ii = 0; ii < CONFIG_T::out_width/CONFIG_T::add_lat; ii++) {
+        #pragma HLS PIPELINE II=1
+
+        for (int ff = 0; ff <  CONFIG_T::n_filt; ff++){
+            for(int cc= 0; cc < CONFIG_T::n_chan; cc++){
+                for (int ia = 0; ia < CONFIG_T::add_lat; ia++){
+                    #pragma HLS UNROLL
+                    int index_mult = (ii*CONFIG_T::add_lat+ia)*CONFIG_T::n_filt*CONFIG_T::n_chan + ff*CONFIG_T::n_chan+ cc;
+                    acc_lat[ii][ff][ia] += mult[index_mult];
+	            }
+            }
+        }
+    }
+
+   FullAccum: 
+    for (int ij= 0; ij <CONFIG_T::add_lat; ij++){
+        #pragma HLS PIPELINE II=1
+        for (int ii = 0; ii <CONFIG_T::out_width; ii++){
+            for (int ff = 0; ff <  CONFIG_T::n_filt; ff++){
+                #pragma HLS UNROLL
+	            acc[ii][ff] += acc_lat[ii][ff][ij];
+            }
+      }
+    }
 
 
     // Cast to "res_t" type

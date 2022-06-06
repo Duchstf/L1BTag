@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'sigmoid_ap_fixed_ap_fixed_sigmoid_config12_s'" level="0">
-<item name = "Date">Fri Jun  3 16:17:58 2022
+<item name = "Date">Mon Jun  6 10:35:08 2022
 </item>
 <item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
 <item name = "Project">myproject_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00, 4.123, 0.62</column>
+<column name="ap_clk">2.50, 2.117, 0.31</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">1, 1, 1, 1, function</column>
+<column name="">2, 2, 1, 1, function</column>
 </table>
 </item>
 <item name = "Detail">
@@ -51,8 +51,8 @@
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">1, -, 0, 0, -</column>
-<column name="Multiplexer">-, -, -, 9, -</column>
-<column name="Register">-, -, 3, -, -</column>
+<column name="Multiplexer">-, -, -, -, -</column>
+<column name="Register">-, -, 17, -, -</column>
 <specialColumn name="Available SLR">1440, 2280, 788160, 394080, 320</specialColumn>
 <specialColumn name="Utilization SLR (%)">~0, 0, ~0, ~0, 0</specialColumn>
 <specialColumn name="Available">4320, 6840, 2364480, 1182240, 960</specialColumn>
@@ -80,31 +80,32 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln167_1_fu_176_p2">+, 0, 0, 14, 10, 14</column>
-<column name="index_fu_170_p2">+, 0, 0, 15, 10, 15</column>
-<column name="ret_V_fu_144_p2">+, 0, 0, 15, 1, 15</column>
-<column name="icmp_ln169_fu_212_p2">icmp, 0, 0, 9, 4, 1</column>
-<column name="icmp_ln851_fu_138_p2">icmp, 0, 0, 11, 8, 1</column>
-<column name="p_Result_s_fu_120_p2">icmp, 0, 0, 20, 26, 5</column>
-<column name="ap_block_pp0_stage0_01001">or, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state1_pp0_stage0_iter0">or, 0, 0, 2, 1, 1</column>
-<column name="select_ln168_fu_190_p3">select, 0, 0, 14, 1, 1</column>
-<column name="select_ln169_fu_218_p3">select, 0, 0, 10, 1, 2</column>
-<column name="select_ln850_fu_158_p3">select, 0, 0, 15, 1, 15</column>
-<column name="select_ln851_fu_150_p3">select, 0, 0, 15, 1, 15</column>
+<column name="add_ln167_1_fu_165_p2">+, 0, 0, 14, 10, 14</column>
+<column name="index_fu_159_p2">+, 0, 0, 15, 10, 15</column>
+<column name="ret_V_fu_133_p2">+, 0, 0, 15, 1, 15</column>
+<column name="ap_block_pp0_stage0_11001">and, 0, 0, 2, 1, 1</column>
+<column name="icmp_ln169_fu_201_p2">icmp, 0, 0, 9, 4, 1</column>
+<column name="icmp_ln851_fu_127_p2">icmp, 0, 0, 11, 8, 1</column>
+<column name="p_Result_s_fu_109_p2">icmp, 0, 0, 20, 26, 5</column>
+<column name="ap_block_pp0_stage0_subdone">or, 0, 0, 2, 1, 1</column>
+<column name="select_ln168_fu_179_p3">select, 0, 0, 14, 1, 1</column>
+<column name="select_ln169_fu_206_p3">select, 0, 0, 10, 1, 2</column>
+<column name="select_ln850_fu_147_p3">select, 0, 0, 15, 1, 15</column>
+<column name="select_ln851_fu_139_p3">select, 0, 0, 15, 1, 15</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_done">9, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">1, 0, 1, 0</column>
-<column name="ap_done_reg">1, 0, 1, 0</column>
 <column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter2">1, 0, 1, 0</column>
+<column name="tmp_3_reg_233">4, 0, 4, 0</column>
+<column name="trunc_ln168_reg_228">10, 0, 10, 0</column>
 </table>
 </item>
 </section>
@@ -118,12 +119,11 @@
 <column name="ap_rst">in, 1, ap_ctrl_hs, sigmoid&lt;ap_fixed,ap_fixed,sigmoid_config12&gt;, return value</column>
 <column name="ap_start">in, 1, ap_ctrl_hs, sigmoid&lt;ap_fixed,ap_fixed,sigmoid_config12&gt;, return value</column>
 <column name="ap_done">out, 1, ap_ctrl_hs, sigmoid&lt;ap_fixed,ap_fixed,sigmoid_config12&gt;, return value</column>
-<column name="ap_continue">in, 1, ap_ctrl_hs, sigmoid&lt;ap_fixed,ap_fixed,sigmoid_config12&gt;, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, sigmoid&lt;ap_fixed,ap_fixed,sigmoid_config12&gt;, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, sigmoid&lt;ap_fixed,ap_fixed,sigmoid_config12&gt;, return value</column>
+<column name="ap_ce">in, 1, ap_ctrl_hs, sigmoid&lt;ap_fixed,ap_fixed,sigmoid_config12&gt;, return value</column>
+<column name="ap_return">out, 8, ap_ctrl_hs, sigmoid&lt;ap_fixed,ap_fixed,sigmoid_config12&gt;, return value</column>
 <column name="data_V_read">in, 16, ap_none, data_V_read, scalar</column>
-<column name="res_V">out, 16, ap_vld, res_V, pointer</column>
-<column name="res_V_ap_vld">out, 1, ap_vld, res_V, pointer</column>
 </table>
 </item>
 </section>

@@ -61,7 +61,8 @@ void conv_1d_cl(
     if (CONFIG_T::strategy == nnet::latency) {
         conv_1d_latency_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
     } else {
-        conv_1d_resource_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
+        //conv_1d_resource_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
+        conv_1d_resource_cl_2<data_T, res_T, CONFIG_T>(data, res, weights, biases);
     }
 }
 

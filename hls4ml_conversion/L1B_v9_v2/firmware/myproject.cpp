@@ -32,7 +32,7 @@ void myproject(
     #pragma HLS ARRAY_RESHAPE variable=conv1d_input complete dim=0
     #pragma HLS ARRAY_PARTITION variable=layer12_out complete dim=0
     #pragma HLS INTERFACE ap_vld port=conv1d_input,layer12_out 
-    #pragma HLS DATAFLOW 
+    #pragma HLS PIPELINE 
 
     const_size_in_1 = N_INPUT_1_1*N_INPUT_2_1;
     const_size_out_1 = N_LAYER_11;

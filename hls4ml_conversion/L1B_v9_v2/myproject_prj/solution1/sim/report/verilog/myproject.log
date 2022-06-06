@@ -1,0 +1,161 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "/data/Xilinx/Vivado/Vivado/2019.1/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling apatb_myproject.cpp
+   Compiling myproject.cpp_pre.cpp.tb.cpp
+   Compiling myproject_test.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+INFO: Unable to open input/predictions file, using default input.
+0.0429688 
+INFO: Saved inference results to file: tb_data/rtl_cosim_results.log
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/data/Xilinx/Vivado/Vivado/2019.1/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /data/Xilinx/Vivado/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_myproject_top glbl -prj myproject.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile /data/Xilinx/Vivado/Vivado/2019.1/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s myproject -debug wave 
+Multi-threading is on. Using 30 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/myproject.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module myproject
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/dense_latency_ap_fixed_ap_fixed_config11_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dense_latency_ap_fixed_ap_fixed_config11_0_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/sigmoid_ap_fixed_ap_fixed_sigmoid_config12_s_sigmoid_table1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sigmoid_ap_fixed_ap_fixed_sigmoid_config12_s_sigmoid_table1_rom
+INFO: [VRFC 10-311] analyzing module sigmoid_ap_fixed_ap_fixed_sigmoid_config12_s_sigmoid_table1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/dense_latency_0_0_0_0_0_0_0_0_0_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dense_latency_0_0_0_0_0_0_0_0_0_0_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/relu_ap_fixed_ap_fixed_16_8_5_3_0_relu_config8_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module relu_ap_fixed_ap_fixed_16_8_5_3_0_relu_config8_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/relu_ap_fixed_ap_fixed_16_8_5_3_0_relu_config5_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module relu_ap_fixed_ap_fixed_16_8_5_3_0_relu_config5_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dense_latency_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/relu_ap_fixed_ap_fixed_16_8_5_3_0_relu_config3_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module relu_ap_fixed_ap_fixed_16_8_5_3_0_relu_config3_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/sigmoid_ap_fixed_ap_fixed_sigmoid_config12_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sigmoid_ap_fixed_ap_fixed_sigmoid_config12_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/relu_ap_fixed_ap_fixed_16_8_5_3_0_relu_config10_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module relu_ap_fixed_ap_fixed_16_8_5_3_0_relu_config10_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/myproject.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_myproject_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/conv_1d_latency_cl_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module conv_1d_latency_cl_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/pointwise_conv_1d_cl_0_0_0_0_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pointwise_conv_1d_cl_0_0_0_0_0_0
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.conv_1d_latency_cl_0_0_0_0_0_0_0...
+Compiling module xil_defaultlib.dense_latency_0_0_0_0_0_0_0_0_0_...
+Compiling module xil_defaultlib.dense_latency_0_0_0_0_0_0_0_0_0_...
+Compiling module xil_defaultlib.pointwise_conv_1d_cl_0_0_0_0_0_0
+Compiling module xil_defaultlib.relu_ap_fixed_ap_fixed_16_8_5_3_...
+Compiling module xil_defaultlib.relu_ap_fixed_ap_fixed_16_8_5_3_...
+Compiling module xil_defaultlib.dense_latency_ap_fixed_ap_fixed_...
+Compiling module xil_defaultlib.relu_ap_fixed_ap_fixed_16_8_5_3_...
+Compiling module xil_defaultlib.relu_ap_fixed_ap_fixed_16_8_5_3_...
+Compiling module xil_defaultlib.sigmoid_ap_fixed_ap_fixed_sigmoi...
+Compiling module xil_defaultlib.sigmoid_ap_fixed_ap_fixed_sigmoi...
+Compiling module xil_defaultlib.sigmoid_ap_fixed_ap_fixed_sigmoi...
+Compiling module xil_defaultlib.myproject
+Compiling module xil_defaultlib.apatb_myproject_top
+Compiling module work.glbl
+Built simulation snapshot myproject
+
+****** Webtalk v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/xsim.dir/myproject/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Mon Jun  6 10:35:52 2022...
+
+****** xsim v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/myproject/xsim_script.tcl
+# xsim {myproject} -autoloadwcfg -tclbatch {myproject.tcl}
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+source myproject.tcl
+## log_wave -r /
+WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
+## set const_size_out_1_group [add_wave_group const_size_out_1(wire) -into $coutputgroup]
+## add_wave /apatb_myproject_top/AESL_inst_myproject/const_size_out_1_ap_vld -into $const_size_out_1_group -color #ffff00 -radix hex
+## add_wave /apatb_myproject_top/AESL_inst_myproject/const_size_out_1 -into $const_size_out_1_group -radix hex
+## set const_size_in_1_group [add_wave_group const_size_in_1(wire) -into $coutputgroup]
+## add_wave /apatb_myproject_top/AESL_inst_myproject/const_size_in_1_ap_vld -into $const_size_in_1_group -color #ffff00 -radix hex
+## add_wave /apatb_myproject_top/AESL_inst_myproject/const_size_in_1 -into $const_size_in_1_group -radix hex
+## set layer12_out_group [add_wave_group layer12_out(wire) -into $coutputgroup]
+## add_wave /apatb_myproject_top/AESL_inst_myproject/layer12_out_0_V_ap_vld -into $layer12_out_group -color #ffff00 -radix hex
+## add_wave /apatb_myproject_top/AESL_inst_myproject/layer12_out_0_V -into $layer12_out_group -radix hex
+## set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
+## set conv1d_input_group [add_wave_group conv1d_input(wire) -into $cinputgroup]
+## add_wave /apatb_myproject_top/AESL_inst_myproject/conv1d_input_V_ap_vld -into $conv1d_input_group -color #ffff00 -radix hex
+## add_wave /apatb_myproject_top/AESL_inst_myproject/conv1d_input_V -into $conv1d_input_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
+## add_wave /apatb_myproject_top/AESL_inst_myproject/ap_start -into $blocksiggroup
+## add_wave /apatb_myproject_top/AESL_inst_myproject/ap_done -into $blocksiggroup
+## add_wave /apatb_myproject_top/AESL_inst_myproject/ap_idle -into $blocksiggroup
+## add_wave /apatb_myproject_top/AESL_inst_myproject/ap_ready -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_myproject_top/AESL_inst_myproject/ap_rst -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_myproject_top/AESL_inst_myproject/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_myproject_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_myproject_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_myproject_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_myproject_top/LENGTH_conv1d_input_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_myproject_top/LENGTH_layer12_out_0_V -into $tb_portdepth_group -radix hex
+## add_wave /apatb_myproject_top/LENGTH_const_size_in_1 -into $tb_portdepth_group -radix hex
+## add_wave /apatb_myproject_top/LENGTH_const_size_out_1 -into $tb_portdepth_group -radix hex
+## set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
+## set tb_const_size_out_1_group [add_wave_group const_size_out_1(wire) -into $tbcoutputgroup]
+## add_wave /apatb_myproject_top/const_size_out_1_ap_vld -into $tb_const_size_out_1_group -color #ffff00 -radix hex
+## add_wave /apatb_myproject_top/const_size_out_1 -into $tb_const_size_out_1_group -radix hex
+## set tb_const_size_in_1_group [add_wave_group const_size_in_1(wire) -into $tbcoutputgroup]
+## add_wave /apatb_myproject_top/const_size_in_1_ap_vld -into $tb_const_size_in_1_group -color #ffff00 -radix hex
+## add_wave /apatb_myproject_top/const_size_in_1 -into $tb_const_size_in_1_group -radix hex
+## set tb_layer12_out_group [add_wave_group layer12_out(wire) -into $tbcoutputgroup]
+## add_wave /apatb_myproject_top/layer12_out_0_V_ap_vld -into $tb_layer12_out_group -color #ffff00 -radix hex
+## add_wave /apatb_myproject_top/layer12_out_0_V -into $tb_layer12_out_group -radix hex
+## set tbcinputgroup [add_wave_group "C Inputs" -into $testbenchgroup]
+## set tb_conv1d_input_group [add_wave_group conv1d_input(wire) -into $tbcinputgroup]
+## add_wave /apatb_myproject_top/conv1d_input_V_ap_vld -into $tb_conv1d_input_group -color #ffff00 -radix hex
+## add_wave /apatb_myproject_top/conv1d_input_V -into $tb_conv1d_input_group -radix hex
+## save_wave_config myproject.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "106000"
+// RTL Simulation : 1 / 1 [100.00%] @ "181000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 191250 ps : File "/data/dhoang/L1BTag/hls4ml_conversion/L1B_v9_v2/myproject_prj/solution1/sim/verilog/myproject.autotb.v" Line 411
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Jun  6 10:36:01 2022...
+INFO: Unable to open input/predictions file, using default input.
+0.0429688 
+INFO: Saved inference results to file: tb_data/rtl_cosim_results.log
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.

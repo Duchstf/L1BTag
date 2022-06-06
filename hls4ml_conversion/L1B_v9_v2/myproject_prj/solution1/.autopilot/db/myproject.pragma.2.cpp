@@ -59789,19 +59789,46 @@ _ssdm_op_SpecResourceLimit(multiplier_limit, "mul", "", "", "");
             acc[ii][ff]=biases[ff];
         }
     }
+# 113 "firmware/nnet_utils/nnet_conv1d_latency.h"
+    typename CONFIG_T::accum_t acc_lat[CONFIG_T::out_width][CONFIG_T::n_filt][CONFIG_T::add_lat];
+_ssdm_SpecArrayPartition( acc_lat, 0, "COMPLETE", 0, "");
 
+ AddLatencyInit:
+    for (int i = 0; i < CONFIG_T::out_width; i++){
+#pragma UNROLL
+ for (int j= 0; j < CONFIG_T::n_filt; j++){
+          for(int k =0; k < CONFIG_T::add_lat; k++){
+            acc_lat[i][j][k] = 0;
+          }
+      }
+    }
 
+    AccumTree:
+    for(int ii = 0; ii < CONFIG_T::out_width/CONFIG_T::add_lat; ii++) {
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
 
-    AccumOut: for(int ii = 0; ii < CONFIG_T::out_width; ii++) {
-        AccumFilt: for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
-
-            AccumChan: for(int cc = 0; cc < CONFIG_T::n_chan; cc++){
-                AccumDot: for(int jj = 0; jj < CONFIG_T::filt_width; jj++){
-                    int index_mult = ii*CONFIG_T::n_filt*CONFIG_T::n_chan*CONFIG_T::filt_width + ff*CONFIG_T::n_chan*CONFIG_T::filt_width + cc*CONFIG_T::filt_width + jj;
-                    acc[ii][ff] += mult[index_mult];
+ for (int ff = 0; ff < CONFIG_T::n_filt; ff++){
+            for(int cc= 0; cc < CONFIG_T::n_chan; cc++){
+                for(int jj = 0; jj < CONFIG_T::filt_width; jj++){
+                    for (int ia = 0; ia < CONFIG_T::add_lat; ia++){
+_ssdm_Unroll(0,0,0, "");
+ int index_mult = (ii*CONFIG_T::add_lat+ia)*CONFIG_T::n_filt*CONFIG_T::n_chan*CONFIG_T::filt_width + ff*CONFIG_T::n_chan*CONFIG_T::filt_width + cc*CONFIG_T::filt_width + jj;
+                        acc_lat[ii][ff][ia] += mult[index_mult];
+                 }
                 }
             }
         }
+    }
+
+   FullAccum:
+    for (int ij= 0; ij <CONFIG_T::add_lat; ij++){
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+ for (int ii = 0; ii <CONFIG_T::out_width; ii++){
+            for (int ff = 0; ff < CONFIG_T::n_filt; ff++){
+_ssdm_Unroll(0,0,0, "");
+ acc[ii][ff] += acc_lat[ii][ff][ij];
+            }
+      }
     }
 
 
@@ -59820,7 +59847,7 @@ void pointwise_conv_1d_cl(
     typename CONFIG_T::weight_t weights[CONFIG_T::n_chan * CONFIG_T::n_filt],
     typename CONFIG_T::bias_t biases[CONFIG_T::n_filt])
 {
-    ((CONFIG_T::filt_width == 1) ? static_cast<void> (0) : __assert_fail ("CONFIG_T::filt_width == 1", "firmware/nnet_utils/nnet_conv1d_latency.h", 128, __PRETTY_FUNCTION__));
+    ((CONFIG_T::filt_width == 1) ? static_cast<void> (0) : __assert_fail ("CONFIG_T::filt_width == 1", "firmware/nnet_utils/nnet_conv1d_latency.h", 170, __PRETTY_FUNCTION__));
 
     typename CONFIG_T::accum_t mult[CONFIG_T::out_width * CONFIG_T::n_filt * CONFIG_T::n_chan];
     typename CONFIG_T::accum_t acc[CONFIG_T::out_width][CONFIG_T::n_filt];
@@ -59836,7 +59863,7 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 _ssdm_SpecArrayPartition( biases, 0, "COMPLETE", 0, "");
 
 
- const int multiplier_limit = 150;
+ const int multiplier_limit = 50;
 _ssdm_op_SpecResourceLimit(multiplier_limit, "mul", "", "", "");
 
 
@@ -59864,17 +59891,44 @@ _ssdm_op_SpecResourceLimit(multiplier_limit, "mul", "", "", "");
             acc[ii][ff]=biases[ff];
         }
     }
+# 228 "firmware/nnet_utils/nnet_conv1d_latency.h"
+    typename CONFIG_T::accum_t acc_lat[CONFIG_T::out_width][CONFIG_T::n_filt][CONFIG_T::add_lat];
+_ssdm_SpecArrayPartition( acc_lat, 0, "COMPLETE", 0, "");
 
+ AddLatencyInit:
+    for (int i = 0; i < CONFIG_T::out_width; i++){
+#pragma UNROLL
+ for (int j= 0; j < CONFIG_T::n_filt; j++){
+          for(int k =0; k < CONFIG_T::add_lat; k++){
+            acc_lat[i][j][k] = 0;
+          }
+      }
+    }
 
+    AccumTree:
+    for(int ii = 0; ii < CONFIG_T::out_width/CONFIG_T::add_lat; ii++) {
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
 
-    AccumOut: for(int ii = 0; ii < CONFIG_T::out_width; ii++) {
-        AccumFilt: for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
-
-            AccumChan: for(int cc = 0; cc < CONFIG_T::n_chan; cc++) {
-                int index_mult = ii*CONFIG_T::n_filt*CONFIG_T::n_chan + ff*CONFIG_T::n_chan + cc;
-                acc[ii][ff] += mult[index_mult];
+ for (int ff = 0; ff < CONFIG_T::n_filt; ff++){
+            for(int cc= 0; cc < CONFIG_T::n_chan; cc++){
+                for (int ia = 0; ia < CONFIG_T::add_lat; ia++){
+_ssdm_Unroll(0,0,0, "");
+ int index_mult = (ii*CONFIG_T::add_lat+ia)*CONFIG_T::n_filt*CONFIG_T::n_chan + ff*CONFIG_T::n_chan+ cc;
+                    acc_lat[ii][ff][ia] += mult[index_mult];
+             }
             }
         }
+    }
+
+   FullAccum:
+    for (int ij= 0; ij <CONFIG_T::add_lat; ij++){
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+ for (int ii = 0; ii <CONFIG_T::out_width; ii++){
+            for (int ff = 0; ff < CONFIG_T::n_filt; ff++){
+_ssdm_Unroll(0,0,0, "");
+ acc[ii][ff] += acc_lat[ii][ff][ij];
+            }
+      }
     }
 
 
@@ -60097,17 +60151,36 @@ _ssdm_Unroll(0,0,0, "");
  }
         acc[iacc] = (typename CONFIG_T::accum_t) biases[iacc];
     }
+# 121 "firmware/nnet_utils/nnet_dense_latency.h"
+    typename CONFIG_T::accum_t acc_lat[CONFIG_T::n_out][CONFIG_T::add_lat];
+_ssdm_SpecArrayPartition( acc_lat, 0, "COMPLETE", 0, "");
 
-
-    Accum1: for(int ii = 0; ii < CONFIG_T::n_in; ii++) {
-        if (CONFIG_T::io_type == io_serial){
-_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
- }
-        Accum2: for(int jj = 0; jj < CONFIG_T::n_out; jj++) {
-        int index = ii*CONFIG_T::n_out+jj;
-        acc[jj] += mult[index];
-        }
+ AddLatencyInit:
+    for (int ii = 0; ii < CONFIG_T::n_out; ii++){
+#pragma UNROLL
+ for (int ij= 0; ij < CONFIG_T::add_lat; ij++){
+ acc_lat[ii][ij] = 0;
+      }
     }
+    for(int ii = 0; ii < CONFIG_T::n_in/CONFIG_T::add_lat; ii++) {
+      for (int io = 0; io < (CONFIG_T::n_out); io++){
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+ for (int ia = 0; ia < CONFIG_T::add_lat; ia++){
+_ssdm_Unroll(0,0,0, "");
+ int index = (ii*CONFIG_T::add_lat+ia)*CONFIG_T::n_out+io;
+          acc_lat[io][ia] += mult[index];
+ }
+      }
+    }
+
+   FullAccum:
+    for (int ij= 0; ij < CONFIG_T::add_lat; ij++){
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+ for (int ii = 0; ii < CONFIG_T::n_out; ii++){
+_ssdm_Unroll(0,0,0, "");
+ acc[ii] += acc_lat[ii][ij];
+      }
+     }
 
 
     Result: for(int ires = 0; ires < CONFIG_T::n_out; ires++){
@@ -60628,8 +60701,8 @@ void conv_1d_resource_cl(
     data_T data_col[CONFIG_T::filt_width * CONFIG_T::n_chan];
     res_T res_col[CONFIG_T::n_filt];
 
-_ssdm_SpecArrayPartition( data_col, 1, "COMPLETE", 0, "");
-_ssdm_SpecArrayPartition( res_col, 1, "COMPLETE", 0, "");
+_ssdm_SpecArrayPartition( &data_col, 1, "COMPLETE", 0, "");
+_ssdm_SpecArrayPartition( &res_col, 1, "COMPLETE", 0, "");
 
  ColLoop:
     for (int i = 0; i < CONFIG_T::out_width; i++) {
@@ -60638,6 +60711,111 @@ _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
         dense_resource<data_T, res_T, typename CONFIG_T::mult_config>(data_col, res_col, weights, biases);
         for (int j = 0; j < CONFIG_T::n_filt; j++) {
             res[i * CONFIG_T::n_filt + j] = res_col[j];
+        }
+    }
+}
+
+template<class data_T, class res_T, typename CONFIG_T>
+void conv_1d_resource_cl_2(
+    data_T data[CONFIG_T::in_width * CONFIG_T::n_chan],
+    res_T res[CONFIG_T::out_width * CONFIG_T::n_filt],
+    typename CONFIG_T::weight_t weights[CONFIG_T::filt_width * CONFIG_T::n_chan * CONFIG_T::n_filt],
+    typename CONFIG_T::bias_t biases[CONFIG_T::n_filt]
+)
+{
+
+    typename CONFIG_T::accum_t mult[CONFIG_T::out_width * CONFIG_T::n_filt * CONFIG_T::n_chan * CONFIG_T::filt_width];
+    typename CONFIG_T::accum_t acc[CONFIG_T::out_width][CONFIG_T::n_filt];
+
+_ssdm_SpecArrayPartition( mult, 0, "COMPLETE", 0, "");
+_ssdm_SpecArrayPartition( acc, 0, "COMPLETE", 0, "");
+
+
+_ssdm_SpecFuncInstantiation(weights,biases, "");
+
+
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+_ssdm_SpecArrayPartition( biases, 0, "COMPLETE", 0, "");
+
+
+ const int multiplier_limit = 300;
+_ssdm_op_SpecResourceLimit(multiplier_limit, "mul", "", "", "");
+
+
+ ConvOut: for(int ii = 0; ii < CONFIG_T::out_width; ii++) {
+        ConvFilt: for(int ff = 0; ff < CONFIG_T::n_filt; ff++){
+            ConvChan: for(int cc = 0; cc < CONFIG_T::n_chan; cc++){
+                ConvMult: for(int jj = 0; jj < CONFIG_T::filt_width; jj++){
+
+                    int index_mult = ii*CONFIG_T::n_filt*CONFIG_T::n_chan*CONFIG_T::filt_width + ff*CONFIG_T::n_chan*CONFIG_T::filt_width + cc*CONFIG_T::filt_width + jj;
+                    int index_weight = jj*CONFIG_T::n_chan*CONFIG_T::n_filt + cc*CONFIG_T::n_filt + ff;
+                    int index_data = (ii*CONFIG_T::stride_width+jj-CONFIG_T::pad_left) * CONFIG_T::n_chan + cc;
+
+                    if((ii*CONFIG_T::stride_width+jj) < CONFIG_T::pad_left || (ii*CONFIG_T::stride_width+jj) >= (CONFIG_T::pad_left + CONFIG_T::in_width)){
+                        mult[index_mult] = 0;
+                    }
+                    else {
+                        mult[index_mult] = data[index_data] * weights[index_weight];
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    for(int ii = 0; ii < CONFIG_T::out_width; ii++) {
+        for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+            acc[ii][ff]=biases[ff];
+        }
+    }
+# 269 "firmware/nnet_utils/nnet_conv1d_resource.h"
+    typename CONFIG_T::accum_t acc_lat[CONFIG_T::out_width][CONFIG_T::n_filt][CONFIG_T::add_lat];
+_ssdm_SpecArrayPartition( acc_lat, 0, "COMPLETE", 0, "");
+
+ AddLatencyInit:
+    for (int i = 0; i < CONFIG_T::out_width; i++){
+#pragma UNROLL
+ for (int j= 0; j < CONFIG_T::n_filt; j++){
+          for(int k =0; k < CONFIG_T::add_lat; k++){
+            acc_lat[i][j][k] = 0;
+          }
+      }
+    }
+
+    AccumTree:
+    for(int ii = 0; ii < CONFIG_T::out_width/CONFIG_T::add_lat; ii++) {
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+
+ for (int ff = 0; ff < CONFIG_T::n_filt; ff++){
+            for(int cc= 0; cc < CONFIG_T::n_chan; cc++){
+                for(int jj = 0; jj < CONFIG_T::filt_width; jj++){
+                    for (int ia = 0; ia < CONFIG_T::add_lat; ia++){
+_ssdm_Unroll(0,0,0, "");
+ int index_mult = (ii*CONFIG_T::add_lat+ia)*CONFIG_T::n_filt*CONFIG_T::n_chan*CONFIG_T::filt_width + ff*CONFIG_T::n_chan*CONFIG_T::filt_width + cc*CONFIG_T::filt_width + jj;
+                        acc_lat[ii][ff][ia] += mult[index_mult];
+                 }
+                }
+            }
+        }
+    }
+
+   FullAccum:
+    for (int ij= 0; ij <CONFIG_T::add_lat; ij++){
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+ for (int ii = 0; ii <CONFIG_T::out_width; ii++){
+            for (int ff = 0; ff < CONFIG_T::n_filt; ff++){
+_ssdm_Unroll(0,0,0, "");
+ acc[ii][ff] += acc_lat[ii][ff][ij];
+            }
+      }
+    }
+
+
+
+    for(int ii = 0; ii < CONFIG_T::out_width; ii++) {
+        for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+            res[ii * CONFIG_T::n_filt + ff] = (res_T)(acc[ii][ff]);
         }
     }
 }
@@ -60685,7 +60863,8 @@ void conv_1d_cl(
     if (CONFIG_T::strategy == nnet::latency) {
         conv_1d_latency_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
     } else {
-        conv_1d_resource_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
+
+        conv_1d_resource_cl_2<data_T, res_T, CONFIG_T>(data, res, weights, biases);
     }
 }
 
@@ -61901,7 +62080,8 @@ struct config2_mult : nnet::dense_config {
     static const unsigned n_in = 13;
     static const unsigned n_out = 20;
     static const unsigned reuse_factor = 1;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     typedef model_default_t accum_t;
     typedef model_default_t bias_t;
     typedef model_default_t weight_t;
@@ -61922,8 +62102,9 @@ struct config2 : nnet::conv1d_config {
     static const unsigned out_width = 10;
     static const unsigned reuse_factor = 1;
     static const unsigned n_zeros = 0;
+    static const unsigned add_lat = 10;
     static const bool store_weights_in_bram = false;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned strategy = nnet::latency;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned min_width = 130;
     static const ap_uint<filt_width> pixels[min_width];
@@ -61948,7 +62129,8 @@ struct config13_mult : nnet::dense_config {
     static const unsigned n_in = 20;
     static const unsigned n_out = 5;
     static const unsigned reuse_factor = 5;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     typedef model_default_t accum_t;
     typedef model_default_t bias_t;
     typedef model_default_t weight_t;
@@ -61970,7 +62152,8 @@ struct config13 : nnet::conv1d_config {
     static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const bool store_weights_in_bram = false;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 5;
+    static const unsigned strategy = nnet::latency;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned min_width = 10;
     static const ap_uint<filt_width> pixels[min_width];
@@ -61995,7 +62178,8 @@ struct config7 : nnet::dense_config {
     static const unsigned n_in = 50;
     static const unsigned n_out = 20;
     static const unsigned io_type = nnet::io_parallel;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 1000;
@@ -62022,7 +62206,8 @@ struct config9 : nnet::dense_config {
     static const unsigned n_in = 20;
     static const unsigned n_out = 10;
     static const unsigned io_type = nnet::io_parallel;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 200;
@@ -62049,7 +62234,8 @@ struct config11 : nnet::dense_config {
     static const unsigned n_in = 10;
     static const unsigned n_out = 1;
     static const unsigned io_type = nnet::io_parallel;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 10;
@@ -62083,7 +62269,7 @@ void myproject(
 _ssdm_SpecArrayReshape( conv1d_input, 0,  "COMPLETE",  0, "");
 _ssdm_SpecArrayPartition( layer12_out, 0, "COMPLETE", 0, "");
 _ssdm_op_SpecInterface(conv1d_input, "ap_vld", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");_ssdm_op_SpecInterface(layer12_out, "ap_vld", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
-_ssdm_op_SpecDataflowPipeline(-1, 0, "");
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 
  const_size_in_1 = 130*1;
     const_size_out_1 = 1;

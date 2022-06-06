@@ -59789,19 +59789,46 @@ void conv_1d_latency_cl(
             acc[ii][ff]=biases[ff];
         }
     }
+# 113 "firmware/nnet_utils/nnet_conv1d_latency.h"
+    typename CONFIG_T::accum_t acc_lat[CONFIG_T::out_width][CONFIG_T::n_filt][CONFIG_T::add_lat];
+#pragma HLS ARRAY_PARTITION variable=&acc_lat complete dim=0
 
+ AddLatencyInit:
+    for (int i = 0; i < CONFIG_T::out_width; i++){
+#pragma UNROLL
+ for (int j= 0; j < CONFIG_T::n_filt; j++){
+          for(int k =0; k < CONFIG_T::add_lat; k++){
+            acc_lat[i][j][k] = 0;
+          }
+      }
+    }
 
+    AccumTree:
+    for(int ii = 0; ii < CONFIG_T::out_width/CONFIG_T::add_lat; ii++) {
+#pragma HLS PIPELINE II=1
 
-    AccumOut: for(int ii = 0; ii < CONFIG_T::out_width; ii++) {
-        AccumFilt: for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
-
-            AccumChan: for(int cc = 0; cc < CONFIG_T::n_chan; cc++){
-                AccumDot: for(int jj = 0; jj < CONFIG_T::filt_width; jj++){
-                    int index_mult = ii*CONFIG_T::n_filt*CONFIG_T::n_chan*CONFIG_T::filt_width + ff*CONFIG_T::n_chan*CONFIG_T::filt_width + cc*CONFIG_T::filt_width + jj;
-                    acc[ii][ff] += mult[index_mult];
+ for (int ff = 0; ff < CONFIG_T::n_filt; ff++){
+            for(int cc= 0; cc < CONFIG_T::n_chan; cc++){
+                for(int jj = 0; jj < CONFIG_T::filt_width; jj++){
+                    for (int ia = 0; ia < CONFIG_T::add_lat; ia++){
+#pragma HLS UNROLL
+ int index_mult = (ii*CONFIG_T::add_lat+ia)*CONFIG_T::n_filt*CONFIG_T::n_chan*CONFIG_T::filt_width + ff*CONFIG_T::n_chan*CONFIG_T::filt_width + cc*CONFIG_T::filt_width + jj;
+                        acc_lat[ii][ff][ia] += mult[index_mult];
+                 }
                 }
             }
         }
+    }
+
+   FullAccum:
+    for (int ij= 0; ij <CONFIG_T::add_lat; ij++){
+#pragma HLS PIPELINE II=1
+ for (int ii = 0; ii <CONFIG_T::out_width; ii++){
+            for (int ff = 0; ff < CONFIG_T::n_filt; ff++){
+#pragma HLS UNROLL
+ acc[ii][ff] += acc_lat[ii][ff][ij];
+            }
+      }
     }
 
 
@@ -59820,7 +59847,7 @@ void pointwise_conv_1d_cl(
     typename CONFIG_T::weight_t weights[CONFIG_T::n_chan * CONFIG_T::n_filt],
     typename CONFIG_T::bias_t biases[CONFIG_T::n_filt])
 {
-    ((CONFIG_T::filt_width == 1) ? static_cast<void> (0) : __assert_fail ("CONFIG_T::filt_width == 1", "firmware/nnet_utils/nnet_conv1d_latency.h", 128, __PRETTY_FUNCTION__));
+    ((CONFIG_T::filt_width == 1) ? static_cast<void> (0) : __assert_fail ("CONFIG_T::filt_width == 1", "firmware/nnet_utils/nnet_conv1d_latency.h", 170, __PRETTY_FUNCTION__));
 
     typename CONFIG_T::accum_t mult[CONFIG_T::out_width * CONFIG_T::n_filt * CONFIG_T::n_chan];
     typename CONFIG_T::accum_t acc[CONFIG_T::out_width][CONFIG_T::n_filt];
@@ -59836,7 +59863,7 @@ void pointwise_conv_1d_cl(
 #pragma HLS ARRAY_PARTITION variable=&biases complete dim=0
 
 
- const int multiplier_limit = 150;
+ const int multiplier_limit = 50;
 #pragma HLS ALLOCATION instances=mul limit=multiplier_limit operation
 
 
@@ -59864,17 +59891,44 @@ void pointwise_conv_1d_cl(
             acc[ii][ff]=biases[ff];
         }
     }
+# 228 "firmware/nnet_utils/nnet_conv1d_latency.h"
+    typename CONFIG_T::accum_t acc_lat[CONFIG_T::out_width][CONFIG_T::n_filt][CONFIG_T::add_lat];
+#pragma HLS ARRAY_PARTITION variable=&acc_lat complete dim=0
 
+ AddLatencyInit:
+    for (int i = 0; i < CONFIG_T::out_width; i++){
+#pragma UNROLL
+ for (int j= 0; j < CONFIG_T::n_filt; j++){
+          for(int k =0; k < CONFIG_T::add_lat; k++){
+            acc_lat[i][j][k] = 0;
+          }
+      }
+    }
 
+    AccumTree:
+    for(int ii = 0; ii < CONFIG_T::out_width/CONFIG_T::add_lat; ii++) {
+#pragma HLS PIPELINE II=1
 
-    AccumOut: for(int ii = 0; ii < CONFIG_T::out_width; ii++) {
-        AccumFilt: for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
-
-            AccumChan: for(int cc = 0; cc < CONFIG_T::n_chan; cc++) {
-                int index_mult = ii*CONFIG_T::n_filt*CONFIG_T::n_chan + ff*CONFIG_T::n_chan + cc;
-                acc[ii][ff] += mult[index_mult];
+ for (int ff = 0; ff < CONFIG_T::n_filt; ff++){
+            for(int cc= 0; cc < CONFIG_T::n_chan; cc++){
+                for (int ia = 0; ia < CONFIG_T::add_lat; ia++){
+#pragma HLS UNROLL
+ int index_mult = (ii*CONFIG_T::add_lat+ia)*CONFIG_T::n_filt*CONFIG_T::n_chan + ff*CONFIG_T::n_chan+ cc;
+                    acc_lat[ii][ff][ia] += mult[index_mult];
+             }
             }
         }
+    }
+
+   FullAccum:
+    for (int ij= 0; ij <CONFIG_T::add_lat; ij++){
+#pragma HLS PIPELINE II=1
+ for (int ii = 0; ii <CONFIG_T::out_width; ii++){
+            for (int ff = 0; ff < CONFIG_T::n_filt; ff++){
+#pragma HLS UNROLL
+ acc[ii][ff] += acc_lat[ii][ff][ij];
+            }
+      }
     }
 
 
@@ -60097,17 +60151,36 @@ void dense_latency(
  }
         acc[iacc] = (typename CONFIG_T::accum_t) biases[iacc];
     }
+# 121 "firmware/nnet_utils/nnet_dense_latency.h"
+    typename CONFIG_T::accum_t acc_lat[CONFIG_T::n_out][CONFIG_T::add_lat];
+#pragma HLS ARRAY_PARTITION variable=&acc_lat complete dim=0
 
-
-    Accum1: for(int ii = 0; ii < CONFIG_T::n_in; ii++) {
-        if (CONFIG_T::io_type == io_serial){
-#pragma HLS PIPELINE
- }
-        Accum2: for(int jj = 0; jj < CONFIG_T::n_out; jj++) {
-        int index = ii*CONFIG_T::n_out+jj;
-        acc[jj] += mult[index];
-        }
+ AddLatencyInit:
+    for (int ii = 0; ii < CONFIG_T::n_out; ii++){
+#pragma UNROLL
+ for (int ij= 0; ij < CONFIG_T::add_lat; ij++){
+ acc_lat[ii][ij] = 0;
+      }
     }
+    for(int ii = 0; ii < CONFIG_T::n_in/CONFIG_T::add_lat; ii++) {
+      for (int io = 0; io < (CONFIG_T::n_out); io++){
+#pragma HLS PIPELINE II=1
+ for (int ia = 0; ia < CONFIG_T::add_lat; ia++){
+#pragma HLS UNROLL
+ int index = (ii*CONFIG_T::add_lat+ia)*CONFIG_T::n_out+io;
+          acc_lat[io][ia] += mult[index];
+ }
+      }
+    }
+
+   FullAccum:
+    for (int ij= 0; ij < CONFIG_T::add_lat; ij++){
+#pragma HLS PIPELINE II=1
+ for (int ii = 0; ii < CONFIG_T::n_out; ii++){
+#pragma HLS UNROLL
+ acc[ii] += acc_lat[ii][ij];
+      }
+     }
 
 
     Result: for(int ires = 0; ires < CONFIG_T::n_out; ires++){
@@ -60642,6 +60715,111 @@ void conv_1d_resource_cl(
     }
 }
 
+template<class data_T, class res_T, typename CONFIG_T>
+void conv_1d_resource_cl_2(
+    data_T data[CONFIG_T::in_width * CONFIG_T::n_chan],
+    res_T res[CONFIG_T::out_width * CONFIG_T::n_filt],
+    typename CONFIG_T::weight_t weights[CONFIG_T::filt_width * CONFIG_T::n_chan * CONFIG_T::n_filt],
+    typename CONFIG_T::bias_t biases[CONFIG_T::n_filt]
+)
+{
+
+    typename CONFIG_T::accum_t mult[CONFIG_T::out_width * CONFIG_T::n_filt * CONFIG_T::n_chan * CONFIG_T::filt_width];
+    typename CONFIG_T::accum_t acc[CONFIG_T::out_width][CONFIG_T::n_filt];
+
+#pragma HLS ARRAY_PARTITION variable=&mult complete dim=0
+#pragma HLS ARRAY_PARTITION variable=&acc complete dim=0
+
+
+#pragma HLS function_instantiate variable=&weights,&biases
+
+
+#pragma HLS PIPELINE
+#pragma HLS ARRAY_PARTITION variable=&biases complete dim=0
+
+
+ const int multiplier_limit = 300;
+#pragma HLS ALLOCATION instances=mul limit=multiplier_limit operation
+
+
+ ConvOut: for(int ii = 0; ii < CONFIG_T::out_width; ii++) {
+        ConvFilt: for(int ff = 0; ff < CONFIG_T::n_filt; ff++){
+            ConvChan: for(int cc = 0; cc < CONFIG_T::n_chan; cc++){
+                ConvMult: for(int jj = 0; jj < CONFIG_T::filt_width; jj++){
+
+                    int index_mult = ii*CONFIG_T::n_filt*CONFIG_T::n_chan*CONFIG_T::filt_width + ff*CONFIG_T::n_chan*CONFIG_T::filt_width + cc*CONFIG_T::filt_width + jj;
+                    int index_weight = jj*CONFIG_T::n_chan*CONFIG_T::n_filt + cc*CONFIG_T::n_filt + ff;
+                    int index_data = (ii*CONFIG_T::stride_width+jj-CONFIG_T::pad_left) * CONFIG_T::n_chan + cc;
+
+                    if((ii*CONFIG_T::stride_width+jj) < CONFIG_T::pad_left || (ii*CONFIG_T::stride_width+jj) >= (CONFIG_T::pad_left + CONFIG_T::in_width)){
+                        mult[index_mult] = 0;
+                    }
+                    else {
+                        mult[index_mult] = data[index_data] * weights[index_weight];
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    for(int ii = 0; ii < CONFIG_T::out_width; ii++) {
+        for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+            acc[ii][ff]=biases[ff];
+        }
+    }
+# 269 "firmware/nnet_utils/nnet_conv1d_resource.h"
+    typename CONFIG_T::accum_t acc_lat[CONFIG_T::out_width][CONFIG_T::n_filt][CONFIG_T::add_lat];
+#pragma HLS ARRAY_PARTITION variable=&acc_lat complete dim=0
+
+ AddLatencyInit:
+    for (int i = 0; i < CONFIG_T::out_width; i++){
+#pragma UNROLL
+ for (int j= 0; j < CONFIG_T::n_filt; j++){
+          for(int k =0; k < CONFIG_T::add_lat; k++){
+            acc_lat[i][j][k] = 0;
+          }
+      }
+    }
+
+    AccumTree:
+    for(int ii = 0; ii < CONFIG_T::out_width/CONFIG_T::add_lat; ii++) {
+#pragma HLS PIPELINE II=1
+
+ for (int ff = 0; ff < CONFIG_T::n_filt; ff++){
+            for(int cc= 0; cc < CONFIG_T::n_chan; cc++){
+                for(int jj = 0; jj < CONFIG_T::filt_width; jj++){
+                    for (int ia = 0; ia < CONFIG_T::add_lat; ia++){
+#pragma HLS UNROLL
+ int index_mult = (ii*CONFIG_T::add_lat+ia)*CONFIG_T::n_filt*CONFIG_T::n_chan*CONFIG_T::filt_width + ff*CONFIG_T::n_chan*CONFIG_T::filt_width + cc*CONFIG_T::filt_width + jj;
+                        acc_lat[ii][ff][ia] += mult[index_mult];
+                 }
+                }
+            }
+        }
+    }
+
+   FullAccum:
+    for (int ij= 0; ij <CONFIG_T::add_lat; ij++){
+#pragma HLS PIPELINE II=1
+ for (int ii = 0; ii <CONFIG_T::out_width; ii++){
+            for (int ff = 0; ff < CONFIG_T::n_filt; ff++){
+#pragma HLS UNROLL
+ acc[ii][ff] += acc_lat[ii][ff][ij];
+            }
+      }
+    }
+
+
+
+    for(int ii = 0; ii < CONFIG_T::out_width; ii++) {
+        for(int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+            res[ii * CONFIG_T::n_filt + ff] = (res_T)(acc[ii][ff]);
+        }
+    }
+}
+
 }
 # 26 "firmware/nnet_utils/nnet_conv1d.h" 2
 # 1 "/data/Xilinx/Vivado/Vivado/2019.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/cstdlib" 1 3
@@ -60685,7 +60863,8 @@ void conv_1d_cl(
     if (CONFIG_T::strategy == nnet::latency) {
         conv_1d_latency_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
     } else {
-        conv_1d_resource_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
+
+        conv_1d_resource_cl_2<data_T, res_T, CONFIG_T>(data, res, weights, biases);
     }
 }
 
@@ -61901,7 +62080,8 @@ struct config2_mult : nnet::dense_config {
     static const unsigned n_in = 13;
     static const unsigned n_out = 20;
     static const unsigned reuse_factor = 1;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     typedef model_default_t accum_t;
     typedef model_default_t bias_t;
     typedef model_default_t weight_t;
@@ -61922,8 +62102,9 @@ struct config2 : nnet::conv1d_config {
     static const unsigned out_width = 10;
     static const unsigned reuse_factor = 1;
     static const unsigned n_zeros = 0;
+    static const unsigned add_lat = 10;
     static const bool store_weights_in_bram = false;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned strategy = nnet::latency;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned min_width = 130;
     static const ap_uint<filt_width> pixels[min_width];
@@ -61948,7 +62129,8 @@ struct config13_mult : nnet::dense_config {
     static const unsigned n_in = 20;
     static const unsigned n_out = 5;
     static const unsigned reuse_factor = 5;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     typedef model_default_t accum_t;
     typedef model_default_t bias_t;
     typedef model_default_t weight_t;
@@ -61970,7 +62152,8 @@ struct config13 : nnet::conv1d_config {
     static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const bool store_weights_in_bram = false;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 5;
+    static const unsigned strategy = nnet::latency;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned min_width = 10;
     static const ap_uint<filt_width> pixels[min_width];
@@ -61995,7 +62178,8 @@ struct config7 : nnet::dense_config {
     static const unsigned n_in = 50;
     static const unsigned n_out = 20;
     static const unsigned io_type = nnet::io_parallel;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 1000;
@@ -62022,7 +62206,8 @@ struct config9 : nnet::dense_config {
     static const unsigned n_in = 20;
     static const unsigned n_out = 10;
     static const unsigned io_type = nnet::io_parallel;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 200;
@@ -62049,7 +62234,8 @@ struct config11 : nnet::dense_config {
     static const unsigned n_in = 10;
     static const unsigned n_out = 1;
     static const unsigned io_type = nnet::io_parallel;
-    static const unsigned strategy = nnet::resource;
+    static const unsigned add_lat = 2;
+    static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 10;
@@ -62083,7 +62269,7 @@ void myproject(
 #pragma HLS ARRAY_RESHAPE variable=&conv1d_input complete dim=0
 #pragma HLS ARRAY_PARTITION variable=&layer12_out complete dim=0
 #pragma HLS INTERFACE ap_vld port=&conv1d_input,&layer12_out
-#pragma HLS DATAFLOW
+#pragma HLS PIPELINE
 
  const_size_in_1 = 130*1;
     const_size_out_1 = 1;
