@@ -1,0 +1,63 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'myproject'" level="0">
+<item name = "Date">Mon Sep 26 10:32:35 2022
+</item>
+<item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
+<item name = "Project">myproject_prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcvu9p-flga2104-2L-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00, 4.286, 0.62</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">37, 40, 6, 6, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_conv_1d_latency_cl_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2_fu_1136">conv_1d_latency_cl_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_2, 13, 14, 6, 6, dataflow</column>
+<column name="grp_pointwise_conv_1d_cl_0_0_0_0_0_0_fu_1361">pointwise_conv_1d_cl_0_0_0_0_0_0, 12, 13, 6, 6, dataflow</column>
+<column name="grp_dense_resource_rf_leq_nin_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_s_fu_1635">dense_resource_rf_leq_nin_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_s, 6, 7, 5, 5, loop rewind(delay=0 initiation interval(s))</column>
+<column name="call_ret2_relu_ap_fixed_ap_ufixed_9_0_0_0_0_relu_config4_s_fu_1691">relu_ap_fixed_ap_ufixed_9_0_0_0_0_relu_config4_s, 0, 0, 1, 1, function</column>
+<column name="grp_dense_resource_rf_leq_nin_0_0_0_0_0_0_0_0_0_0_0_fu_1895">dense_resource_rf_leq_nin_0_0_0_0_0_0_0_0_0_0_0, 5, 6, 5, 5, loop rewind(delay=0 initiation interval(s))</column>
+<column name="call_ret_relu_ap_fixed_ap_ufixed_9_0_0_0_0_relu_config7_s_fu_1921">relu_ap_fixed_ap_ufixed_9_0_0_0_0_relu_config7_s, 0, 0, 1, 1, function</column>
+<column name="call_ret6_relu_ap_fixed_ap_ufixed_9_0_0_0_0_relu_config11_s_fu_1975">relu_ap_fixed_ap_ufixed_9_0_0_0_0_relu_config11_s, 0, 0, 1, 1, function</column>
+<column name="call_ret9_relu_ap_fixed_ap_ufixed_9_0_0_0_0_relu_config14_s_fu_1999">relu_ap_fixed_ap_ufixed_9_0_0_0_0_relu_config14_s, 0, 0, 1, 1, function</column>
+<column name="grp_dense_resource_rf_leq_nin_ap_ufixed_ap_fixed_config15_0_0_fu_2013">dense_resource_rf_leq_nin_ap_ufixed_ap_fixed_config15_0_0, 5, 6, 5, 5, loop rewind(delay=0 initiation interval(s))</column>
+<column name="call_ret1_linear_ap_fixed_ap_fixed_16_6_0_0_0_linear_config3_s_fu_2029">linear_ap_fixed_ap_fixed_16_6_0_0_0_linear_config3_s, 0, 0, 1, 1, function</column>
+<column name="grp_sigmoid_ap_fixed_ap_fixed_sigmoid_config17_s_fu_2233">sigmoid_ap_fixed_ap_fixed_sigmoid_config17_s, 1, 1, 1, 1, function</column>
+<column name="call_ret3_linear_ap_fixed_ap_fixed_16_6_0_0_0_linear_config6_s_fu_2242">linear_ap_fixed_ap_fixed_16_6_0_0_0_linear_config6_s, 0, 0, 1, 1, function</column>
+<column name="call_ret5_linear_ap_fixed_ap_fixed_16_6_0_0_0_linear_config10_s_fu_2296">linear_ap_fixed_ap_fixed_16_6_0_0_0_linear_config10_s, 0, 0, 1, 1, function</column>
+<column name="call_ret8_linear_ap_fixed_ap_fixed_16_6_0_0_0_linear_config13_s_fu_2320">linear_ap_fixed_ap_fixed_16_6_0_0_0_linear_config13_s, 0, 0, 1, 1, function</column>
+<column name="call_ln0_Block_proc_fu_2334">Block_proc, 0, 0, 0, 0, none</column>
+<column name="call_ln25_myproject_entry5_fu_2342">myproject_entry5, 0, 0, 0, 0, none</column>
+<column name="call_ln35_myproject_entry225_fu_2349">myproject_entry225, 0, 0, 0, 0, none</column>
+<column name="tmp_linear_ap_fixed_ap_fixed_16_6_0_0_0_linear_config16_s_fu_2355">linear_ap_fixed_ap_fixed_16_6_0_0_0_linear_config16_s, 0, 0, 1, 1, function</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

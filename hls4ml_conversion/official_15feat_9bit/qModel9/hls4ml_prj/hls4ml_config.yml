@@ -1,0 +1,80 @@
+Backend: Vivado
+ClockPeriod: 5
+HLSConfig:
+  LayerName:
+    Conv1D_1:
+      ParallelizationFactor: 5
+      Precision:
+        bias: ap_fixed<9,1>
+        weight: ap_fixed<9,1>
+      ReuseFactor: 5
+      Strategy: Latency
+    Conv1D_1_input:
+      Precision: ap_fixed<10,2>
+      ReuseFactor: 5
+      Strategy: Latency
+    Conv1D_2:
+      ParallelizationFactor: 5
+      Precision:
+        bias: ap_fixed<9,1>
+        weight: ap_fixed<9,1>
+      ReuseFactor: 5
+      Strategy: Latency
+    Dense_1:
+      Precision:
+        bias: ap_fixed<9,1>
+        weight: ap_fixed<9,1>
+      ReuseFactor: 5
+      Strategy: Resource
+    Dense_2:
+      Precision:
+        bias: ap_fixed<9,1>
+        weight: ap_fixed<9,1>
+      ReuseFactor: 5
+      Strategy: Resource
+    output:
+      Precision:
+        bias: ap_fixed<9,1>
+        weight: ap_fixed<9,1>
+      ReuseFactor: 5
+      Strategy: Latency
+    relu_1:
+      Precision:
+        result: ap_ufixed<9,0>
+      ReuseFactor: 5
+      Strategy: Latency
+    relu_2:
+      Precision:
+        result: ap_ufixed<9,0>
+      ReuseFactor: 5
+      Strategy: Latency
+    relu_3:
+      Precision:
+        result: ap_ufixed<9,0>
+      ReuseFactor: 5
+      Strategy: Latency
+    relu_4:
+      Precision:
+        result: ap_ufixed<9,0>
+      ReuseFactor: 5
+      Strategy: Latency
+    sigmoid:
+      Precision: ap_fixed<16,6>
+      ReuseFactor: 5
+      Strategy: Latency
+      exp_table_t: ap_fixed<18,4>
+      inv_table_t: ap_fixed<18,4>
+      table_size: 1024
+      table_t: ap_fixed<18,8>
+  Model:
+    Precision: ap_fixed<16,6>
+    ReuseFactor: 1
+    Strategy: Latency
+IOType: io_parallel
+InputData: null
+KerasModel: !keras_model 'qModel9/hls4ml_prj/keras_model.h5'
+OutputDir: qModel9/hls4ml_prj
+OutputPredictions: null
+Part: xcvu9p-flga2104-2L-e
+ProjectName: myproject
+Stamp: Bd64f43C

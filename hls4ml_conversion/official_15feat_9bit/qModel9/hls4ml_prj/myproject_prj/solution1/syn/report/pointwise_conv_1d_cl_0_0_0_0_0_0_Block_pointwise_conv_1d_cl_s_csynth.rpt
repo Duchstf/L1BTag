@@ -1,0 +1,378 @@
+
+
+================================================================
+== Vivado HLS Report for 'pointwise_conv_1d_cl_0_0_0_0_0_0_Block_pointwise_conv_1d_cl_s'
+================================================================
+* Date:           Mon Sep 26 10:34:31 2022
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        myproject_prj
+* Solution:       solution1
+* Product family: virtexuplus
+* Target device:  xcvu9p-flga2104-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|     0.000|        0.62|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+-----+
+|         Name        | BRAM_18K| DSP48E|    FF   |   LUT   | URAM|
++---------------------+---------+-------+---------+---------+-----+
+|DSP                  |        -|      -|        -|        -|    -|
+|Expression           |        -|      -|        0|        2|    -|
+|FIFO                 |        -|      -|        -|        -|    -|
+|Instance             |        -|      -|        -|        -|    -|
+|Memory               |        -|      -|        -|        -|    -|
+|Multiplexer          |        -|      -|        -|      459|    -|
+|Register             |        -|      -|      802|        -|    -|
++---------------------+---------+-------+---------+---------+-----+
+|Total                |        0|      0|      802|      461|    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available SLR        |     1440|   2280|   788160|   394080|  320|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization SLR (%)  |        0|      0|    ~0   |    ~0   |    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available            |     4320|   6840|  2364480|  1182240|  960|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization (%)      |        0|      0|    ~0   |    ~0   |    0|
++---------------------+---------+-------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+-------+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+-------+---+----+------------+------------+
+    |ap_block_state1  |    or    |      0|  0|   2|           1|           1|
+    +-----------------+----------+-------+---+----+------------+------------+
+    |Total            |          |      0|  0|   2|           1|           1|
+    +-----------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------+----+-----------+-----+-----------+
+    |   Name   | LUT| Input Size| Bits| Total Bits|
+    +----------+----+-----------+-----+-----------+
+    |ap_done   |   9|          2|    1|          2|
+    |res_0_V   |   9|          2|   16|         32|
+    |res_10_V  |   9|          2|   16|         32|
+    |res_11_V  |   9|          2|   16|         32|
+    |res_12_V  |   9|          2|   16|         32|
+    |res_13_V  |   9|          2|   16|         32|
+    |res_14_V  |   9|          2|   16|         32|
+    |res_15_V  |   9|          2|   16|         32|
+    |res_16_V  |   9|          2|   16|         32|
+    |res_17_V  |   9|          2|   16|         32|
+    |res_18_V  |   9|          2|   16|         32|
+    |res_19_V  |   9|          2|   16|         32|
+    |res_1_V   |   9|          2|   16|         32|
+    |res_20_V  |   9|          2|   16|         32|
+    |res_21_V  |   9|          2|   16|         32|
+    |res_22_V  |   9|          2|   16|         32|
+    |res_23_V  |   9|          2|   16|         32|
+    |res_24_V  |   9|          2|   16|         32|
+    |res_25_V  |   9|          2|   16|         32|
+    |res_26_V  |   9|          2|   16|         32|
+    |res_27_V  |   9|          2|   16|         32|
+    |res_28_V  |   9|          2|   16|         32|
+    |res_29_V  |   9|          2|   16|         32|
+    |res_2_V   |   9|          2|   16|         32|
+    |res_30_V  |   9|          2|   16|         32|
+    |res_31_V  |   9|          2|   16|         32|
+    |res_32_V  |   9|          2|   16|         32|
+    |res_33_V  |   9|          2|   16|         32|
+    |res_34_V  |   9|          2|   16|         32|
+    |res_35_V  |   9|          2|   16|         32|
+    |res_36_V  |   9|          2|   16|         32|
+    |res_37_V  |   9|          2|   16|         32|
+    |res_38_V  |   9|          2|   16|         32|
+    |res_39_V  |   9|          2|   16|         32|
+    |res_3_V   |   9|          2|   16|         32|
+    |res_40_V  |   9|          2|   16|         32|
+    |res_41_V  |   9|          2|   16|         32|
+    |res_42_V  |   9|          2|   16|         32|
+    |res_43_V  |   9|          2|   16|         32|
+    |res_44_V  |   9|          2|   16|         32|
+    |res_45_V  |   9|          2|   16|         32|
+    |res_46_V  |   9|          2|   16|         32|
+    |res_47_V  |   9|          2|   16|         32|
+    |res_48_V  |   9|          2|   16|         32|
+    |res_49_V  |   9|          2|   16|         32|
+    |res_4_V   |   9|          2|   16|         32|
+    |res_5_V   |   9|          2|   16|         32|
+    |res_6_V   |   9|          2|   16|         32|
+    |res_7_V   |   9|          2|   16|         32|
+    |res_8_V   |   9|          2|   16|         32|
+    |res_9_V   |   9|          2|   16|         32|
+    +----------+----+-----------+-----+-----------+
+    |Total     | 459|        102|  801|       1602|
+    +----------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------+----+----+-----+-----------+
+    |      Name     | FF | LUT| Bits| Const Bits|
+    +---------------+----+----+-----+-----------+
+    |ap_CS_fsm      |   1|   0|    1|          0|
+    |ap_done_reg    |   1|   0|    1|          0|
+    |res_0_V_preg   |  16|   0|   16|          0|
+    |res_10_V_preg  |  16|   0|   16|          0|
+    |res_11_V_preg  |  16|   0|   16|          0|
+    |res_12_V_preg  |  16|   0|   16|          0|
+    |res_13_V_preg  |  16|   0|   16|          0|
+    |res_14_V_preg  |  16|   0|   16|          0|
+    |res_15_V_preg  |  16|   0|   16|          0|
+    |res_16_V_preg  |  16|   0|   16|          0|
+    |res_17_V_preg  |  16|   0|   16|          0|
+    |res_18_V_preg  |  16|   0|   16|          0|
+    |res_19_V_preg  |  16|   0|   16|          0|
+    |res_1_V_preg   |  16|   0|   16|          0|
+    |res_20_V_preg  |  16|   0|   16|          0|
+    |res_21_V_preg  |  16|   0|   16|          0|
+    |res_22_V_preg  |  16|   0|   16|          0|
+    |res_23_V_preg  |  16|   0|   16|          0|
+    |res_24_V_preg  |  16|   0|   16|          0|
+    |res_25_V_preg  |  16|   0|   16|          0|
+    |res_26_V_preg  |  16|   0|   16|          0|
+    |res_27_V_preg  |  16|   0|   16|          0|
+    |res_28_V_preg  |  16|   0|   16|          0|
+    |res_29_V_preg  |  16|   0|   16|          0|
+    |res_2_V_preg   |  16|   0|   16|          0|
+    |res_30_V_preg  |  16|   0|   16|          0|
+    |res_31_V_preg  |  16|   0|   16|          0|
+    |res_32_V_preg  |  16|   0|   16|          0|
+    |res_33_V_preg  |  16|   0|   16|          0|
+    |res_34_V_preg  |  16|   0|   16|          0|
+    |res_35_V_preg  |  16|   0|   16|          0|
+    |res_36_V_preg  |  16|   0|   16|          0|
+    |res_37_V_preg  |  16|   0|   16|          0|
+    |res_38_V_preg  |  16|   0|   16|          0|
+    |res_39_V_preg  |  16|   0|   16|          0|
+    |res_3_V_preg   |  16|   0|   16|          0|
+    |res_40_V_preg  |  16|   0|   16|          0|
+    |res_41_V_preg  |  16|   0|   16|          0|
+    |res_42_V_preg  |  16|   0|   16|          0|
+    |res_43_V_preg  |  16|   0|   16|          0|
+    |res_44_V_preg  |  16|   0|   16|          0|
+    |res_45_V_preg  |  16|   0|   16|          0|
+    |res_46_V_preg  |  16|   0|   16|          0|
+    |res_47_V_preg  |  16|   0|   16|          0|
+    |res_48_V_preg  |  16|   0|   16|          0|
+    |res_49_V_preg  |  16|   0|   16|          0|
+    |res_4_V_preg   |  16|   0|   16|          0|
+    |res_5_V_preg   |  16|   0|   16|          0|
+    |res_6_V_preg   |  16|   0|   16|          0|
+    |res_7_V_preg   |  16|   0|   16|          0|
+    |res_8_V_preg   |  16|   0|   16|          0|
+    |res_9_V_preg   |  16|   0|   16|          0|
+    +---------------+----+----+-----+-----------+
+    |Total          | 802|   0|  802|          0|
+    +---------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------+-----+-----+------------+--------------------------------------------------------------+--------------+
+|    RTL Ports    | Dir | Bits|  Protocol  |                         Source Object                        |    C Type    |
++-----------------+-----+-----+------------+--------------------------------------------------------------+--------------+
+|ap_clk           |  in |    1| ap_ctrl_hs | pointwise_conv_1d_cl.0.0.0.0.0.0_Block_pointwise_conv_1d_cl_ | return value |
+|ap_rst           |  in |    1| ap_ctrl_hs | pointwise_conv_1d_cl.0.0.0.0.0.0_Block_pointwise_conv_1d_cl_ | return value |
+|ap_start         |  in |    1| ap_ctrl_hs | pointwise_conv_1d_cl.0.0.0.0.0.0_Block_pointwise_conv_1d_cl_ | return value |
+|ap_done          | out |    1| ap_ctrl_hs | pointwise_conv_1d_cl.0.0.0.0.0.0_Block_pointwise_conv_1d_cl_ | return value |
+|ap_continue      |  in |    1| ap_ctrl_hs | pointwise_conv_1d_cl.0.0.0.0.0.0_Block_pointwise_conv_1d_cl_ | return value |
+|ap_idle          | out |    1| ap_ctrl_hs | pointwise_conv_1d_cl.0.0.0.0.0.0_Block_pointwise_conv_1d_cl_ | return value |
+|ap_ready         | out |    1| ap_ctrl_hs | pointwise_conv_1d_cl.0.0.0.0.0.0_Block_pointwise_conv_1d_cl_ | return value |
+|res_0_V          | out |   16|   ap_vld   |                            res_0_V                           |    pointer   |
+|res_0_V_ap_vld   | out |    1|   ap_vld   |                            res_0_V                           |    pointer   |
+|res_1_V          | out |   16|   ap_vld   |                            res_1_V                           |    pointer   |
+|res_1_V_ap_vld   | out |    1|   ap_vld   |                            res_1_V                           |    pointer   |
+|res_2_V          | out |   16|   ap_vld   |                            res_2_V                           |    pointer   |
+|res_2_V_ap_vld   | out |    1|   ap_vld   |                            res_2_V                           |    pointer   |
+|res_3_V          | out |   16|   ap_vld   |                            res_3_V                           |    pointer   |
+|res_3_V_ap_vld   | out |    1|   ap_vld   |                            res_3_V                           |    pointer   |
+|res_4_V          | out |   16|   ap_vld   |                            res_4_V                           |    pointer   |
+|res_4_V_ap_vld   | out |    1|   ap_vld   |                            res_4_V                           |    pointer   |
+|res_5_V          | out |   16|   ap_vld   |                            res_5_V                           |    pointer   |
+|res_5_V_ap_vld   | out |    1|   ap_vld   |                            res_5_V                           |    pointer   |
+|res_6_V          | out |   16|   ap_vld   |                            res_6_V                           |    pointer   |
+|res_6_V_ap_vld   | out |    1|   ap_vld   |                            res_6_V                           |    pointer   |
+|res_7_V          | out |   16|   ap_vld   |                            res_7_V                           |    pointer   |
+|res_7_V_ap_vld   | out |    1|   ap_vld   |                            res_7_V                           |    pointer   |
+|res_8_V          | out |   16|   ap_vld   |                            res_8_V                           |    pointer   |
+|res_8_V_ap_vld   | out |    1|   ap_vld   |                            res_8_V                           |    pointer   |
+|res_9_V          | out |   16|   ap_vld   |                            res_9_V                           |    pointer   |
+|res_9_V_ap_vld   | out |    1|   ap_vld   |                            res_9_V                           |    pointer   |
+|res_10_V         | out |   16|   ap_vld   |                           res_10_V                           |    pointer   |
+|res_10_V_ap_vld  | out |    1|   ap_vld   |                           res_10_V                           |    pointer   |
+|res_11_V         | out |   16|   ap_vld   |                           res_11_V                           |    pointer   |
+|res_11_V_ap_vld  | out |    1|   ap_vld   |                           res_11_V                           |    pointer   |
+|res_12_V         | out |   16|   ap_vld   |                           res_12_V                           |    pointer   |
+|res_12_V_ap_vld  | out |    1|   ap_vld   |                           res_12_V                           |    pointer   |
+|res_13_V         | out |   16|   ap_vld   |                           res_13_V                           |    pointer   |
+|res_13_V_ap_vld  | out |    1|   ap_vld   |                           res_13_V                           |    pointer   |
+|res_14_V         | out |   16|   ap_vld   |                           res_14_V                           |    pointer   |
+|res_14_V_ap_vld  | out |    1|   ap_vld   |                           res_14_V                           |    pointer   |
+|res_15_V         | out |   16|   ap_vld   |                           res_15_V                           |    pointer   |
+|res_15_V_ap_vld  | out |    1|   ap_vld   |                           res_15_V                           |    pointer   |
+|res_16_V         | out |   16|   ap_vld   |                           res_16_V                           |    pointer   |
+|res_16_V_ap_vld  | out |    1|   ap_vld   |                           res_16_V                           |    pointer   |
+|res_17_V         | out |   16|   ap_vld   |                           res_17_V                           |    pointer   |
+|res_17_V_ap_vld  | out |    1|   ap_vld   |                           res_17_V                           |    pointer   |
+|res_18_V         | out |   16|   ap_vld   |                           res_18_V                           |    pointer   |
+|res_18_V_ap_vld  | out |    1|   ap_vld   |                           res_18_V                           |    pointer   |
+|res_19_V         | out |   16|   ap_vld   |                           res_19_V                           |    pointer   |
+|res_19_V_ap_vld  | out |    1|   ap_vld   |                           res_19_V                           |    pointer   |
+|res_20_V         | out |   16|   ap_vld   |                           res_20_V                           |    pointer   |
+|res_20_V_ap_vld  | out |    1|   ap_vld   |                           res_20_V                           |    pointer   |
+|res_21_V         | out |   16|   ap_vld   |                           res_21_V                           |    pointer   |
+|res_21_V_ap_vld  | out |    1|   ap_vld   |                           res_21_V                           |    pointer   |
+|res_22_V         | out |   16|   ap_vld   |                           res_22_V                           |    pointer   |
+|res_22_V_ap_vld  | out |    1|   ap_vld   |                           res_22_V                           |    pointer   |
+|res_23_V         | out |   16|   ap_vld   |                           res_23_V                           |    pointer   |
+|res_23_V_ap_vld  | out |    1|   ap_vld   |                           res_23_V                           |    pointer   |
+|res_24_V         | out |   16|   ap_vld   |                           res_24_V                           |    pointer   |
+|res_24_V_ap_vld  | out |    1|   ap_vld   |                           res_24_V                           |    pointer   |
+|res_25_V         | out |   16|   ap_vld   |                           res_25_V                           |    pointer   |
+|res_25_V_ap_vld  | out |    1|   ap_vld   |                           res_25_V                           |    pointer   |
+|res_26_V         | out |   16|   ap_vld   |                           res_26_V                           |    pointer   |
+|res_26_V_ap_vld  | out |    1|   ap_vld   |                           res_26_V                           |    pointer   |
+|res_27_V         | out |   16|   ap_vld   |                           res_27_V                           |    pointer   |
+|res_27_V_ap_vld  | out |    1|   ap_vld   |                           res_27_V                           |    pointer   |
+|res_28_V         | out |   16|   ap_vld   |                           res_28_V                           |    pointer   |
+|res_28_V_ap_vld  | out |    1|   ap_vld   |                           res_28_V                           |    pointer   |
+|res_29_V         | out |   16|   ap_vld   |                           res_29_V                           |    pointer   |
+|res_29_V_ap_vld  | out |    1|   ap_vld   |                           res_29_V                           |    pointer   |
+|res_30_V         | out |   16|   ap_vld   |                           res_30_V                           |    pointer   |
+|res_30_V_ap_vld  | out |    1|   ap_vld   |                           res_30_V                           |    pointer   |
+|res_31_V         | out |   16|   ap_vld   |                           res_31_V                           |    pointer   |
+|res_31_V_ap_vld  | out |    1|   ap_vld   |                           res_31_V                           |    pointer   |
+|res_32_V         | out |   16|   ap_vld   |                           res_32_V                           |    pointer   |
+|res_32_V_ap_vld  | out |    1|   ap_vld   |                           res_32_V                           |    pointer   |
+|res_33_V         | out |   16|   ap_vld   |                           res_33_V                           |    pointer   |
+|res_33_V_ap_vld  | out |    1|   ap_vld   |                           res_33_V                           |    pointer   |
+|res_34_V         | out |   16|   ap_vld   |                           res_34_V                           |    pointer   |
+|res_34_V_ap_vld  | out |    1|   ap_vld   |                           res_34_V                           |    pointer   |
+|res_35_V         | out |   16|   ap_vld   |                           res_35_V                           |    pointer   |
+|res_35_V_ap_vld  | out |    1|   ap_vld   |                           res_35_V                           |    pointer   |
+|res_36_V         | out |   16|   ap_vld   |                           res_36_V                           |    pointer   |
+|res_36_V_ap_vld  | out |    1|   ap_vld   |                           res_36_V                           |    pointer   |
+|res_37_V         | out |   16|   ap_vld   |                           res_37_V                           |    pointer   |
+|res_37_V_ap_vld  | out |    1|   ap_vld   |                           res_37_V                           |    pointer   |
+|res_38_V         | out |   16|   ap_vld   |                           res_38_V                           |    pointer   |
+|res_38_V_ap_vld  | out |    1|   ap_vld   |                           res_38_V                           |    pointer   |
+|res_39_V         | out |   16|   ap_vld   |                           res_39_V                           |    pointer   |
+|res_39_V_ap_vld  | out |    1|   ap_vld   |                           res_39_V                           |    pointer   |
+|res_40_V         | out |   16|   ap_vld   |                           res_40_V                           |    pointer   |
+|res_40_V_ap_vld  | out |    1|   ap_vld   |                           res_40_V                           |    pointer   |
+|res_41_V         | out |   16|   ap_vld   |                           res_41_V                           |    pointer   |
+|res_41_V_ap_vld  | out |    1|   ap_vld   |                           res_41_V                           |    pointer   |
+|res_42_V         | out |   16|   ap_vld   |                           res_42_V                           |    pointer   |
+|res_42_V_ap_vld  | out |    1|   ap_vld   |                           res_42_V                           |    pointer   |
+|res_43_V         | out |   16|   ap_vld   |                           res_43_V                           |    pointer   |
+|res_43_V_ap_vld  | out |    1|   ap_vld   |                           res_43_V                           |    pointer   |
+|res_44_V         | out |   16|   ap_vld   |                           res_44_V                           |    pointer   |
+|res_44_V_ap_vld  | out |    1|   ap_vld   |                           res_44_V                           |    pointer   |
+|res_45_V         | out |   16|   ap_vld   |                           res_45_V                           |    pointer   |
+|res_45_V_ap_vld  | out |    1|   ap_vld   |                           res_45_V                           |    pointer   |
+|res_46_V         | out |   16|   ap_vld   |                           res_46_V                           |    pointer   |
+|res_46_V_ap_vld  | out |    1|   ap_vld   |                           res_46_V                           |    pointer   |
+|res_47_V         | out |   16|   ap_vld   |                           res_47_V                           |    pointer   |
+|res_47_V_ap_vld  | out |    1|   ap_vld   |                           res_47_V                           |    pointer   |
+|res_48_V         | out |   16|   ap_vld   |                           res_48_V                           |    pointer   |
+|res_48_V_ap_vld  | out |    1|   ap_vld   |                           res_48_V                           |    pointer   |
+|res_49_V         | out |   16|   ap_vld   |                           res_49_V                           |    pointer   |
+|res_49_V_ap_vld  | out |    1|   ap_vld   |                           res_49_V                           |    pointer   |
+|p_read           |  in |   16|   ap_none  |                            p_read                            |    scalar    |
+|p_read1          |  in |   16|   ap_none  |                            p_read1                           |    scalar    |
+|p_read2          |  in |   16|   ap_none  |                            p_read2                           |    scalar    |
+|p_read3          |  in |   16|   ap_none  |                            p_read3                           |    scalar    |
+|p_read4          |  in |   16|   ap_none  |                            p_read4                           |    scalar    |
+|p_read5          |  in |   16|   ap_none  |                            p_read5                           |    scalar    |
+|p_read6          |  in |   16|   ap_none  |                            p_read6                           |    scalar    |
+|p_read7          |  in |   16|   ap_none  |                            p_read7                           |    scalar    |
+|p_read8          |  in |   16|   ap_none  |                            p_read8                           |    scalar    |
+|p_read9          |  in |   16|   ap_none  |                            p_read9                           |    scalar    |
+|p_read10         |  in |   16|   ap_none  |                           p_read10                           |    scalar    |
+|p_read11         |  in |   16|   ap_none  |                           p_read11                           |    scalar    |
+|p_read12         |  in |   16|   ap_none  |                           p_read12                           |    scalar    |
+|p_read13         |  in |   16|   ap_none  |                           p_read13                           |    scalar    |
+|p_read14         |  in |   16|   ap_none  |                           p_read14                           |    scalar    |
+|p_read15         |  in |   16|   ap_none  |                           p_read15                           |    scalar    |
+|p_read16         |  in |   16|   ap_none  |                           p_read16                           |    scalar    |
+|p_read17         |  in |   16|   ap_none  |                           p_read17                           |    scalar    |
+|p_read18         |  in |   16|   ap_none  |                           p_read18                           |    scalar    |
+|p_read19         |  in |   16|   ap_none  |                           p_read19                           |    scalar    |
+|p_read20         |  in |   16|   ap_none  |                           p_read20                           |    scalar    |
+|p_read21         |  in |   16|   ap_none  |                           p_read21                           |    scalar    |
+|p_read22         |  in |   16|   ap_none  |                           p_read22                           |    scalar    |
+|p_read23         |  in |   16|   ap_none  |                           p_read23                           |    scalar    |
+|p_read24         |  in |   16|   ap_none  |                           p_read24                           |    scalar    |
+|p_read25         |  in |   16|   ap_none  |                           p_read25                           |    scalar    |
+|p_read26         |  in |   16|   ap_none  |                           p_read26                           |    scalar    |
+|p_read27         |  in |   16|   ap_none  |                           p_read27                           |    scalar    |
+|p_read28         |  in |   16|   ap_none  |                           p_read28                           |    scalar    |
+|p_read29         |  in |   16|   ap_none  |                           p_read29                           |    scalar    |
+|p_read30         |  in |   16|   ap_none  |                           p_read30                           |    scalar    |
+|p_read31         |  in |   16|   ap_none  |                           p_read31                           |    scalar    |
+|p_read32         |  in |   16|   ap_none  |                           p_read32                           |    scalar    |
+|p_read33         |  in |   16|   ap_none  |                           p_read33                           |    scalar    |
+|p_read34         |  in |   16|   ap_none  |                           p_read34                           |    scalar    |
+|p_read35         |  in |   16|   ap_none  |                           p_read35                           |    scalar    |
+|p_read36         |  in |   16|   ap_none  |                           p_read36                           |    scalar    |
+|p_read37         |  in |   16|   ap_none  |                           p_read37                           |    scalar    |
+|p_read38         |  in |   16|   ap_none  |                           p_read38                           |    scalar    |
+|p_read39         |  in |   16|   ap_none  |                           p_read39                           |    scalar    |
+|p_read40         |  in |   16|   ap_none  |                           p_read40                           |    scalar    |
+|p_read41         |  in |   16|   ap_none  |                           p_read41                           |    scalar    |
+|p_read42         |  in |   16|   ap_none  |                           p_read42                           |    scalar    |
+|p_read43         |  in |   16|   ap_none  |                           p_read43                           |    scalar    |
+|p_read44         |  in |   16|   ap_none  |                           p_read44                           |    scalar    |
+|p_read45         |  in |   16|   ap_none  |                           p_read45                           |    scalar    |
+|p_read46         |  in |   16|   ap_none  |                           p_read46                           |    scalar    |
+|p_read47         |  in |   16|   ap_none  |                           p_read47                           |    scalar    |
+|p_read48         |  in |   16|   ap_none  |                           p_read48                           |    scalar    |
+|p_read49         |  in |   16|   ap_none  |                           p_read49                           |    scalar    |
++-----------------+-----+-----+------------+--------------------------------------------------------------+--------------+
+

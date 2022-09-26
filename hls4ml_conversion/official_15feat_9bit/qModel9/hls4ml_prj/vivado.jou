@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Mon Sep 26 10:40:06 2022
+# Process ID: 86038
+# Current directory: /data/dhoang/L1BTag/hls4ml_conversion/official_15feat_9bit/qModel9/hls4ml_prj
+# Command line: vivado -mode batch -source vivado_synth.tcl
+# Log file: /data/dhoang/L1BTag/hls4ml_conversion/official_15feat_9bit/qModel9/hls4ml_prj/vivado.log
+# Journal file: /data/dhoang/L1BTag/hls4ml_conversion/official_15feat_9bit/qModel9/hls4ml_prj/vivado.jou
+#-----------------------------------------------------------
+source vivado_synth.tcl

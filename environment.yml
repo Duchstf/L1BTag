@@ -7,8 +7,11 @@ dependencies:
   - matplotlib
   - numpy
   - pip
+  - ipykernel
   - pip:
     - h5py==2.10.0
     - scipy==1.5.4
     - mplhep
+    - jupyter
+#   Need Qkeras as well
 #    - git+https://github.com/Keb-L/hls4ml.git@cnn_merge

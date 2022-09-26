@@ -1,0 +1,131 @@
+
+
+================================================================
+== Vivado HLS Report for 'linear_ap_fixed_ap_fixed_16_6_0_0_0_linear_config13_s'
+================================================================
+* Date:           Mon Sep 26 10:32:00 2022
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        myproject_prj
+* Solution:       solution1
+* Product family: virtexuplus
+* Target device:  xcvu9p-flga2104-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|     0.000|        0.62|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    0|    0|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.00>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%data_9_V_read_5 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_9_V_read)" [firmware/nnet_utils/nnet_activation.h:49]   --->   Operation 2 'read' 'data_9_V_read_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%data_8_V_read_5 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_8_V_read)" [firmware/nnet_utils/nnet_activation.h:49]   --->   Operation 3 'read' 'data_8_V_read_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%data_7_V_read_5 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_7_V_read)" [firmware/nnet_utils/nnet_activation.h:49]   --->   Operation 4 'read' 'data_7_V_read_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%data_6_V_read_5 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_6_V_read)" [firmware/nnet_utils/nnet_activation.h:49]   --->   Operation 5 'read' 'data_6_V_read_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%data_5_V_read_5 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_5_V_read)" [firmware/nnet_utils/nnet_activation.h:49]   --->   Operation 6 'read' 'data_5_V_read_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%data_4_V_read_5 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_4_V_read)" [firmware/nnet_utils/nnet_activation.h:49]   --->   Operation 7 'read' 'data_4_V_read_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%data_3_V_read_5 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_3_V_read)" [firmware/nnet_utils/nnet_activation.h:49]   --->   Operation 8 'read' 'data_3_V_read_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%data_2_V_read_5 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_2_V_read)" [firmware/nnet_utils/nnet_activation.h:49]   --->   Operation 9 'read' 'data_2_V_read_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%data_1_V_read_5 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_1_V_read)" [firmware/nnet_utils/nnet_activation.h:49]   --->   Operation 10 'read' 'data_1_V_read_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%data_0_V_read_5 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %data_0_V_read)" [firmware/nnet_utils/nnet_activation.h:49]   --->   Operation 11 'read' 'data_0_V_read_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str23)" [firmware/nnet_utils/nnet_activation.h:51]   --->   Operation 12 'specregionbegin' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str13) nounwind" [firmware/nnet_utils/nnet_activation.h:52]   --->   Operation 13 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str23, i32 %tmp)" [firmware/nnet_utils/nnet_activation.h:53]   --->   Operation 14 'specregionend' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } undef, i16 %data_0_V_read_5, 0" [firmware/nnet_utils/nnet_activation.h:61]   --->   Operation 15 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv, i16 %data_1_V_read_5, 1" [firmware/nnet_utils/nnet_activation.h:61]   --->   Operation 16 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_1, i16 %data_2_V_read_5, 2" [firmware/nnet_utils/nnet_activation.h:61]   --->   Operation 17 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_2, i16 %data_3_V_read_5, 3" [firmware/nnet_utils/nnet_activation.h:61]   --->   Operation 18 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%mrv_4 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_3, i16 %data_4_V_read_5, 4" [firmware/nnet_utils/nnet_activation.h:61]   --->   Operation 19 'insertvalue' 'mrv_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%mrv_5 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_4, i16 %data_5_V_read_5, 5" [firmware/nnet_utils/nnet_activation.h:61]   --->   Operation 20 'insertvalue' 'mrv_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%mrv_6 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_5, i16 %data_6_V_read_5, 6" [firmware/nnet_utils/nnet_activation.h:61]   --->   Operation 21 'insertvalue' 'mrv_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%mrv_7 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_6, i16 %data_7_V_read_5, 7" [firmware/nnet_utils/nnet_activation.h:61]   --->   Operation 22 'insertvalue' 'mrv_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%mrv_8 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_7, i16 %data_8_V_read_5, 8" [firmware/nnet_utils/nnet_activation.h:61]   --->   Operation 23 'insertvalue' 'mrv_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%mrv_9 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_8, i16 %data_9_V_read_5, 9" [firmware/nnet_utils/nnet_activation.h:61]   --->   Operation 24 'insertvalue' 'mrv_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "ret { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %mrv_9" [firmware/nnet_utils/nnet_activation.h:61]   --->   Operation 25 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

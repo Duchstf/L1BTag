@@ -2,3 +2,4 @@ data/
 .ipynb_checkpoints/
 *.tar.gz
 hls4ml/
+*.h5
